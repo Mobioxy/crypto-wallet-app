@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:crypto_wallet_app/common%20widgets/buttonwithGradientBorder.dart';
+import 'package:crypto_wallet_app/common%20widgets/gradientButton.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
 import 'package:flutter/material.dart';
@@ -206,7 +208,7 @@ class HomePage extends StatelessWidget {
                       mq,
                     ),
                     SizedBox(
-                      width: mq.width * 0.05,
+                      width: mq.width * 0.03,
                     ),
                     sendReceiveWidget(
                       Icons.get_app_sharp,
@@ -214,7 +216,7 @@ class HomePage extends StatelessWidget {
                       mq,
                     ),
                     SizedBox(
-                      width: mq.width * 0.05,
+                      width: mq.width * 0.03,
                     ),
                     sendReceiveWidget(
                       Icons.shopping_bag,
@@ -256,40 +258,8 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            height: mq.height * 0.055,
-            width: mq.width * 0.85,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color.fromRGBO(190, 40, 246, 1),
-                  Color.fromRGBO(105, 20, 245, 1),
-                  Color.fromRGBO(18, 34, 244, 1)
-                ],
-              ),
-            ),
-            padding: const EdgeInsets.all(1.5),
-            child: GestureDetector(
-              onTap: () {},
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                alignment: Alignment.center,
-                child: const Text(
-                  "+ Import Tokens",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    color: Colors.purple,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          buttonwithGradientBorder(
+              mq: mq, function: () {}, title: "+ Import Tokens"),
           const SizedBox(
             height: 10,
           ),
@@ -375,40 +345,10 @@ class HomePage extends StatelessWidget {
                   Colors.blue,
                   false,
                 ),
-                Container(
-                  height: mq.height * 0.055,
-                  width: mq.width * 0.55,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromRGBO(190, 40, 246, 1),
-                        Color.fromRGBO(105, 20, 245, 1),
-                        Color.fromRGBO(18, 34, 244, 1)
-                      ],
-                    ),
-                  ),
-                  padding: const EdgeInsets.all(1.5),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "Close",
-                        style: TextStyle(
-                          color: Colors.purple,
-                        ),
-                      ),
-                    ),
-                  ),
+                buttonwithGradientBorder(
+                  mq: mq,
+                  function: () {},
+                  title: "Close",
                 ),
                 const SizedBox(
                   height: 10,
@@ -474,68 +414,15 @@ class HomePage extends StatelessWidget {
                   "assets/images/avatar.jpg",
                   false,
                 ),
-                Container(
-                  height: mq.height * 0.055,
-                  width: mq.width * 0.85,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromRGBO(190, 40, 246, 1),
-                        Color.fromRGBO(105, 20, 245, 1),
-                        Color.fromRGBO(18, 34, 244, 1)
-                      ],
-                    ),
-                  ),
-                  padding: const EdgeInsets.all(1.5),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "Import an Account",
-                        style: TextStyle(
-                          color: Colors.purple,
-                        ),
-                      ),
-                    ),
-                  ),
+                buttonwithGradientBorder(
+                  mq: mq,
+                  function: () {},
+                  title: "Import an Account",
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Container(
-                  height: mq.height * 0.055,
-                  width: mq.width * 0.85,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color.fromRGBO(190, 40, 246, 1),
-                        Color.fromRGBO(105, 20, 245, 1),
-                        Color.fromRGBO(18, 34, 244, 1)
-                      ],
-                    ),
-                  ),
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: const Text(
-                      "Create New Account",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
+                gradientButton(mq, "Create New Account", () {}),
                 const SizedBox(
                   height: 10,
                 ),
@@ -592,8 +479,8 @@ class HomePage extends StatelessWidget {
 
   Widget sendReceiveWidget(IconData icon, String title, Size mq) {
     return Container(
-      height: mq.height * 0.05,
-      width: mq.width * 0.25,
+      height: mq.height * 0.045,
+      width: mq.width * 0.28,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18),
         gradient: const LinearGradient(
