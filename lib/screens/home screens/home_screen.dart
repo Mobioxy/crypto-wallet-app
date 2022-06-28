@@ -62,88 +62,216 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mq = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 1,
-          backgroundColor: Colors.white,
-          automaticallyImplyLeading: false,
-          leading: const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundImage: AssetImage(
-                'assets/images/avatar.jpg',
-              ),
-            ),
-          ),
-          centerTitle: true,
-          title: const Text(
-            "Home",
-            style: TextStyle(
-              color: Colors.black,
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 1,
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        leading: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            backgroundImage: AssetImage(
+              'assets/images/avatar.jpg',
             ),
           ),
         ),
-        body: Column(
-          children: [
-            SizedBox(
-              height: mq.height * 0.25,
-              child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Colors.purple,
-                        Colors.blue,
-                      ],
+        centerTitle: true,
+        title: const Text(
+          "Home",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ),
+      body: Column(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: mq.height * 0.05,
+              ),
+              const Text(
+                "9.3729 ETH",
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.purple,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                height: mq.height * 0.02,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.currency_exchange,
+                    size: 20,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    "9.3729 ETH",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 10,
+                  SizedBox(
+                    width: 5,
                   ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 3,
-                    vertical: 3,
+                  Text(
+                    "+ 0.7%",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.green,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(14),
+                ],
+              ),
+              SizedBox(
+                height: mq.height * 0.02,
+              ),
+              Container(
+                height: mq.height * 0.05,
+                width: mq.width * 0.6,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 231, 231, 231),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "0x7aCaaa8238........9eTas",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Balance : 25 SPW",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        SizedBox(
-                          height: mq.height * 0.05,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            sendReceiveWidget(Icons.send_sharp, "Send", mq),
-                            SizedBox(
-                              width: mq.width * 0.05,
-                            ),
-                            sendReceiveWidget(
-                                Icons.get_app_sharp, "Receive", mq)
-                          ],
-                        ),
-                      ],
+                    SizedBox(
+                      width: 5,
                     ),
-                  )),
+                    Icon(
+                      Icons.copy,
+                      color: Colors.purple,
+                      size: 20,
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: mq.height * 0.02,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  sendReceiveWidget(
+                    Icons.send_sharp,
+                    "Send",
+                    mq,
+                  ),
+                  SizedBox(
+                    width: mq.width * 0.05,
+                  ),
+                  sendReceiveWidget(
+                    Icons.get_app_sharp,
+                    "Receive",
+                    mq,
+                  ),
+                  SizedBox(
+                    width: mq.width * 0.05,
+                  ),
+                  sendReceiveWidget(
+                    Icons.shopping_bag,
+                    "Buy",
+                    mq,
+                  )
+                ],
+              ),
+              SizedBox(
+                height: mq.height * 0.02,
+              ),
+              tokenItems(
+                "assets/images/block_chain.png",
+                "Binance Coin",
+                "12374971646",
+                "+ 0.15%",
+                "466 BNB",
+              ),
+              const Divider(
+                height: 1,
+              ),
+              tokenItems(
+                "assets/images/block-chain2.png",
+                "USD Coin",
+                "7944971646",
+                "+ 0.35%",
+                "46 USDC",
+              ),
+             const Divider(
+                height: 1,
+              ),
+              tokenItems(
+                "assets/images/avatar.jpg",
+                "Aatar Coin",
+                "7874971646",
+                "+ 0.75%",
+                "466 AT",
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget tokenItems(String leadingImage, String title, String subTitle,
+      String subTitle2, String trailingTitle) {
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundImage: AssetImage(
+          leadingImage,
+        ),
+      ),
+      title: Text(
+        title,
+      ),
+      subtitle: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(
+            subTitle,
+            style: const TextStyle(
+              fontSize: 15,
+              color: Colors.grey,
+              fontWeight: FontWeight.w500,
             ),
-          ],
+          ),
+          const SizedBox(
+            width: 7,
+          ),
+          Text(
+            subTitle2,
+            style: const TextStyle(
+              fontSize: 15,
+              color: Colors.green,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+        ],
+      ),
+      trailing: Text(
+        trailingTitle,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );
@@ -159,8 +287,9 @@ class HomePage extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.blue,
-            Colors.purple,
+            Color.fromRGBO(190, 40, 246, 1),
+            Color.fromRGBO(105, 20, 245, 1),
+            Color.fromRGBO(18, 34, 244, 1)
           ],
         ),
       ),
