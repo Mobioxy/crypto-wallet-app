@@ -196,7 +196,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: mq.height * 0.02,
+                height: mq.height * 0.04,
               ),
               tokenItems(
                 "assets/images/block_chain.png",
@@ -220,7 +220,7 @@ class HomePage extends StatelessWidget {
               ),
               tokenItems(
                 "assets/images/avatar.jpg",
-                "Aatar Coin",
+                "Avatar Coin",
                 "7874971646",
                 "+ 0.75%",
                 "466 AT",
