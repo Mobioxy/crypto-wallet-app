@@ -5,22 +5,20 @@ class SwapTokenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 1,
-          backgroundColor: Colors.white,
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          title: const Text(
-            "Swap tokens",
-            style: TextStyle(
-              color: Colors.black,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 1,
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: const Text(
+          'Swap tokens',
+          style: TextStyle(
+            color: Colors.black,
           ),
         ),
-        body: Container(),
       ),
+      body: Container(),
     );
   }
 }

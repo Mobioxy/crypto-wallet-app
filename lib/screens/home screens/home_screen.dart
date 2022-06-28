@@ -3,7 +3,7 @@ import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart'
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const id = "/homeScreen";
+  static const id = '/homeScreen';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -26,11 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: _widget.elementAt(
-        selectedIndex,
-      ),
+    return Scaffold(
+      body: SafeArea(child: _widget.elementAt(selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 1,
         currentIndex: selectedIndex,
@@ -52,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-    ));
+    );
   }
 }
 
@@ -78,7 +75,7 @@ class HomePage extends StatelessWidget {
           ),
           centerTitle: true,
           title: const Text(
-            "Home",
+            'Home',
             style: TextStyle(
               color: Colors.black,
             ),
@@ -119,7 +116,7 @@ class HomePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Text(
-                          "Balance : 25 SPW",
+                          'Balance : 25 SPW',
                           style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
@@ -131,12 +128,12 @@ class HomePage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            sendReceiveWidget(Icons.send_sharp, "Send", mq),
+                            sendReceiveWidget(Icons.send_sharp, 'Send', mq),
                             SizedBox(
                               width: mq.width * 0.05,
                             ),
                             sendReceiveWidget(
-                                Icons.get_app_sharp, "Receive", mq)
+                                Icons.get_app_sharp, 'Receive', mq)
                           ],
                         ),
                       ],

@@ -2,6 +2,7 @@ import 'package:crypto_wallet_app/main.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/login_screen.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/signup_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/home_screen.dart';
+import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -10,9 +11,9 @@ class AppRouter {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Error"),
+            title: const Text('Error'),
           ),
-          body: const Center(child: Text("404 NOT FOUND")),
+          body: const Center(child: Text('404 NOT FOUND')),
         );
       },
     );
@@ -35,6 +36,10 @@ class AppRouter {
       case HomeScreen.id:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+      case ImportTokenScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const ImportTokenScreen(),
         );
 
       default:

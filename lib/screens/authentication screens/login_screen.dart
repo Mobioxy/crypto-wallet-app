@@ -1,20 +1,19 @@
-import 'package:crypto_wallet_app/common%20widgets/textFieldContainer.dart';
+import 'package:crypto_wallet_app/common_widgets/text_field_container.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/signup_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatelessWidget {
-  static const id = "/loginScreen";
+  static const id = '/loginScreen';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -30,7 +29,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                         image: AssetImage(
-                          "assets/images/block-chain2.png",
+                          'assets/images/block-chain2.png',
                         ),
                       )),
                     ),
@@ -38,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                       width: size.width * 0.05,
                     ),
                     const Text(
-                      "Login",
+                      'Login',
                       style: TextStyle(
                         fontSize: 30,
                         color: Colors.blue,
@@ -52,9 +51,9 @@ class LoginScreen extends StatelessWidget {
                 ),
                 textFieldContainer(
                   size,
-                  "Email Address*",
+                  'Email Address*',
                   TextEditingController(),
-                  "Enter your email address",
+                  'Enter your email address',
                   false,
                 ),
                 SizedBox(
@@ -62,9 +61,9 @@ class LoginScreen extends StatelessWidget {
                 ),
                 textFieldContainer(
                   size,
-                  "Password*",
+                  'Password*',
                   TextEditingController(),
-                  "Enter your password",
+                  'Enter your password',
                   true,
                 ),
                 SizedBox(
@@ -78,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                     );
                   },
                   child: const Text(
-                    "Login",
+                    'Login',
                     style: TextStyle(
                       fontSize: 16,
                     ),
@@ -104,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 RichText(
                   text: TextSpan(
-                    text: "New user ? ",
+                    text: 'New user ? ',
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
@@ -112,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: "Signup",
+                        text: 'Signup',
                         style: const TextStyle(
                           color: Colors.blue,
                           fontSize: 18,

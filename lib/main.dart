@@ -3,33 +3,43 @@ import 'dart:async';
 import 'package:crypto_wallet_app/core/routes.dart';
 import 'package:crypto_wallet_app/core/theme.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/login_screen.dart';
+import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 void main() {
   runApp(const MyApp());
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Crypto Wallet App',
-      theme: appTheme,
-      initialRoute: SplashPage.id,
+      theme: themeData(context),
+      initialRoute: ImportTokenScreen.id,
       onGenerateRoute: AppRouter.router,
-      home: const SplashPage(),
     );
   }
 }
 
 class SplashPage extends StatefulWidget {
-  static const id = "/splashPage";
+  static const id = '/splashPage';
   const SplashPage({Key? key}) : super(key: key);
 
   @override
@@ -70,7 +80,7 @@ class _SplashPageState extends State<SplashPage> {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Blockchain",
+                    'Blockchain',
                     style: GoogleFonts.lato(
                       textStyle: const TextStyle(
                         fontSize: 22,
@@ -88,14 +98,14 @@ class _SplashPageState extends State<SplashPage> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
                 child: Image.asset(
-                  "assets/images/block_chain.png",
+                  'assets/images/block_chain.png',
                 ),
               ),
               SizedBox(
                 height: size.height * 0.04,
               ),
               Text(
-                "Crypto Wallet",
+                'Crypto Wallet',
                 style: GoogleFonts.lato(
                   textStyle: const TextStyle(
                     fontSize: 22,
