@@ -173,7 +173,7 @@ class HomePage extends StatelessWidget {
                   width: mq.width * 0.6,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 231, 231, 231),
+                    color: const Color.fromARGB(255, 242, 239, 239),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
@@ -186,7 +186,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 8,
                       ),
                       Icon(
                         Icons.copy,
