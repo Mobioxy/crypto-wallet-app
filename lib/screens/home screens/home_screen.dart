@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
 import 'package:flutter/material.dart';
@@ -67,169 +69,480 @@ class HomePage extends StatelessWidget {
         elevation: 1,
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
-        leading: const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundImage: AssetImage(
-              'assets/images/avatar.jpg',
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+            onTap: () {
+              accountBottomSheet(context, mq);
+            },
+            child: const CircleAvatar(
+              backgroundImage: AssetImage(
+                'assets/images/avatar.jpg',
+              ),
             ),
           ),
         ),
         centerTitle: true,
-        title: const Text(
-          "Home",
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
+        title: GestureDetector(
+            onTap: () {
+              networkBottomSheet(
+                context,
+                mq,
+              );
+            },
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Text(
+                  "Ethereum Main",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.black,
+                )
+              ],
+            )),
       ),
       body: Column(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: mq.height * 0.05,
-              ),
-              const Text(
-                "9.3729 ETH",
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.purple,
-                  fontWeight: FontWeight.w800,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: mq.height * 0.035,
                 ),
-              ),
-              SizedBox(
-                height: mq.height * 0.02,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.currency_exchange,
-                    size: 20,
-                    color: Colors.black,
+                const Text(
+                  "9.3729 ETH",
+                  style: TextStyle(
+                    fontSize: 26,
+                    color: Colors.purpleAccent,
+                    fontWeight: FontWeight.w800,
                   ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    "9.3729 ETH",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    "+ 0.7%",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.green,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: mq.height * 0.02,
-              ),
-              Container(
-                height: mq.height * 0.05,
-                width: mq.width * 0.6,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 231, 231, 231),
-                  borderRadius: BorderRadius.circular(15),
                 ),
-                child: Row(
+                SizedBox(
+                  height: mq.height * 0.02,
+                ),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
+                    Icon(
+                      Icons.currency_exchange,
+                      size: 20,
+                      color: Colors.black,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Text(
-                      "0x7aCaaa8238........9eTas",
+                      "9.3729 ETH",
                       style: TextStyle(
+                        fontSize: 15,
                         color: Colors.black,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                     SizedBox(
                       width: 5,
                     ),
-                    Icon(
-                      Icons.copy,
-                      color: Colors.purple,
-                      size: 20,
+                    Text(
+                      "+ 0.7%",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.green,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: mq.height * 0.02,
+                ),
+                Container(
+                  height: mq.height * 0.05,
+                  width: mq.width * 0.6,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 231, 231, 231),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        "0x7aCaaa8238........9eTas",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Icon(
+                        Icons.copy,
+                        color: Colors.purple,
+                        size: 20,
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: mq.height * 0.02,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    sendReceiveWidget(
+                      Icons.send_sharp,
+                      "Send",
+                      mq,
+                    ),
+                    SizedBox(
+                      width: mq.width * 0.05,
+                    ),
+                    sendReceiveWidget(
+                      Icons.get_app_sharp,
+                      "Receive",
+                      mq,
+                    ),
+                    SizedBox(
+                      width: mq.width * 0.05,
+                    ),
+                    sendReceiveWidget(
+                      Icons.shopping_bag,
+                      "Buy",
+                      mq,
                     )
                   ],
                 ),
-              ),
-              SizedBox(
-                height: mq.height * 0.02,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  sendReceiveWidget(
-                    Icons.send_sharp,
-                    "Send",
-                    mq,
-                  ),
-                  SizedBox(
-                    width: mq.width * 0.05,
-                  ),
-                  sendReceiveWidget(
-                    Icons.get_app_sharp,
-                    "Receive",
-                    mq,
-                  ),
-                  SizedBox(
-                    width: mq.width * 0.05,
-                  ),
-                  sendReceiveWidget(
-                    Icons.shopping_bag,
-                    "Buy",
-                    mq,
-                  )
+                SizedBox(
+                  height: mq.height * 0.04,
+                ),
+                tokenItems(
+                  "assets/images/block_chain.png",
+                  "Binance Coin",
+                  "12374971646",
+                  "+ 0.15%",
+                  "466 BNB",
+                ),
+                const Divider(
+                  height: 1,
+                ),
+                tokenItems(
+                  "assets/images/block-chain2.png",
+                  "USD Coin",
+                  "7944971646",
+                  "+ 0.35%",
+                  "46 USDC",
+                ),
+                const Divider(
+                  height: 1,
+                ),
+                tokenItems(
+                  "assets/images/avatar.jpg",
+                  "Avatar Coin",
+                  "7874971646",
+                  "+ 0.75%",
+                  "466 AT",
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: mq.height * 0.055,
+            width: mq.width * 0.85,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.fromRGBO(190, 40, 246, 1),
+                  Color.fromRGBO(105, 20, 245, 1),
+                  Color.fromRGBO(18, 34, 244, 1)
                 ],
               ),
-              SizedBox(
-                height: mq.height * 0.04,
+            ),
+            padding: const EdgeInsets.all(1.5),
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                alignment: Alignment.center,
+                child: const Text(
+                  "+ Import Tokens",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Colors.purple,
+                  ),
+                ),
               ),
-              tokenItems(
-                "assets/images/block_chain.png",
-                "Binance Coin",
-                "12374971646",
-                "+ 0.15%",
-                "466 BNB",
-              ),
-              const Divider(
-                height: 1,
-              ),
-              tokenItems(
-                "assets/images/block-chain2.png",
-                "USD Coin",
-                "7944971646",
-                "+ 0.35%",
-                "46 USDC",
-              ),
-             const Divider(
-                height: 1,
-              ),
-              tokenItems(
-                "assets/images/avatar.jpg",
-                "Avatar Coin",
-                "7874971646",
-                "+ 0.75%",
-                "466 AT",
-              )
-            ],
+            ),
+          ),
+          const SizedBox(
+            height: 10,
           ),
         ],
       ),
     );
+  }
+
+  networkBottomSheet(
+    BuildContext context,
+    Size mq,
+  ) {
+    showModalBottomSheet(
+        context: context,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(
+              26,
+            ),
+            topRight: Radius.circular(
+              26,
+            ),
+          ),
+        ),
+        builder: (context) {
+          return SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "Networks",
+                  style: TextStyle(
+                    color: Colors.purple,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                networkWidget(
+                  "Ethereum Main Network",
+                  Colors.green,
+                  true,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Other Networks",
+                      style: TextStyle(
+                        color: Colors.purple,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                networkWidget(
+                  "Ropstan Test Network",
+                  Colors.red,
+                  false,
+                ),
+                networkWidget(
+                  "Kovan Test Network",
+                  Colors.purple,
+                  false,
+                ),
+                networkWidget(
+                  "Rinkeby Test Network",
+                  Colors.orange,
+                  false,
+                ),
+                networkWidget(
+                  "Goreli Test Network",
+                  Colors.blue,
+                  false,
+                ),
+                Container(
+                  height: mq.height * 0.055,
+                  width: mq.width * 0.55,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color.fromRGBO(190, 40, 246, 1),
+                        Color.fromRGBO(105, 20, 245, 1),
+                        Color.fromRGBO(18, 34, 244, 1)
+                      ],
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(1.5),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        "Close",
+                        style: TextStyle(
+                          color: Colors.purple,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+          );
+        });
+  }
+
+  accountBottomSheet(BuildContext context, Size mq) {
+    showModalBottomSheet(
+        context: context,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(
+              26,
+            ),
+            topRight: Radius.circular(
+              26,
+            ),
+          ),
+        ),
+        builder: (context) {
+          return SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "Accounts",
+                  style: TextStyle(
+                    color: Colors.purple,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                accountWidget(
+                  "Account 1",
+                  "9.1574 ETH",
+                  "assets/images/avatar.jpg",
+                  false,
+                ),
+                accountWidget(
+                  "Account 2",
+                  "3.1574 ETH",
+                  "assets/images/avatar.jpg",
+                  false,
+                ),
+                accountWidget(
+                  "Account 3",
+                  "2.1574 ETH",
+                  "assets/images/avatar.jpg",
+                  false,
+                ),
+                accountWidget(
+                  "Account 4",
+                  "4.1574 ETH",
+                  "assets/images/avatar.jpg",
+                  false,
+                ),
+                Container(
+                  height: mq.height * 0.055,
+                  width: mq.width * 0.85,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color.fromRGBO(190, 40, 246, 1),
+                        Color.fromRGBO(105, 20, 245, 1),
+                        Color.fromRGBO(18, 34, 244, 1)
+                      ],
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(1.5),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        "Import an Account",
+                        style: TextStyle(
+                          color: Colors.purple,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: mq.height * 0.055,
+                  width: mq.width * 0.85,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color.fromRGBO(190, 40, 246, 1),
+                        Color.fromRGBO(105, 20, 245, 1),
+                        Color.fromRGBO(18, 34, 244, 1)
+                      ],
+                    ),
+                  ),
+                  alignment: Alignment.center,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      "Create New Account",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+          );
+        });
   }
 
   Widget tokenItems(String leadingImage, String title, String subTitle,
@@ -282,7 +595,7 @@ class HomePage extends StatelessWidget {
       height: mq.height * 0.05,
       width: mq.width * 0.25,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(18),
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -313,5 +626,31 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget networkWidget(String title, Color color, bool value) {
+    return ListTile(
+        leading: CircleAvatar(
+          radius: 13,
+          backgroundColor: color,
+        ),
+        title: Text(title),
+        trailing: Radio(value: value, groupValue: true, onChanged: (v) {}));
+  }
+
+  Widget accountWidget(
+      String title, String subTitle, String image, bool value) {
+    return ListTile(
+        leading: CircleAvatar(
+          radius: 18,
+          backgroundImage: AssetImage(
+            image,
+          ),
+        ),
+        title: Text(title),
+        subtitle: Text(
+          subTitle,
+        ),
+        trailing: Radio(value: value, groupValue: true, onChanged: (v) {}));
   }
 }
