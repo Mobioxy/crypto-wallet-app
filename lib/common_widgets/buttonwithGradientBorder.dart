@@ -1,3 +1,4 @@
+import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 Widget buttonwithGradientBorder({
@@ -35,7 +36,7 @@ Widget buttonwithGradientBorder({
             fontWeight: FontWeight.w700,
             color: Colors.purple,
           ),
-        ),
+        ).toGradient(),
       ),
     ),
   );

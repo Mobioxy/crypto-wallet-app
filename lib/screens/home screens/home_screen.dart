@@ -1,13 +1,16 @@
 import 'dart:ui';
 
 import 'package:crypto_wallet_app/common_widgets/buttonwithGradientBorder.dart';
+import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/createNewAccountSheet.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/importNewAccountSheet.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../common_widgets/gradientButton.dart';
+import '../../common_widgets/send_receive_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   static const id = '/homeScreen';
@@ -129,7 +132,7 @@ class HomePage extends StatelessWidget {
                     color: Colors.purpleAccent,
                     fontWeight: FontWeight.w800,
                   ),
-                ),
+                ).toGradient(),
                 SizedBox(
                   height: mq.height * 0.02,
                 ),
@@ -202,10 +205,18 @@ class HomePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    sendReceiveWidget(
-                      Icons.send_sharp,
-                      "Send",
-                      mq,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          TransactionSendScreen.id,
+                        );
+                      },
+                      child: sendReceiveWidget(
+                        Icons.send_sharp,
+                        "Send",
+                        mq,
+                      ),
                     ),
                     SizedBox(
                       width: mq.width * 0.03,
@@ -229,7 +240,7 @@ class HomePage extends StatelessWidget {
                   height: mq.height * 0.04,
                 ),
                 tokenItems(
-                  "assets/images/block_chain.png",
+                  "assets/images/Binance_Logo.png",
                   "Binance Coin",
                   "12374971646",
                   "+ 0.15%",
@@ -239,7 +250,7 @@ class HomePage extends StatelessWidget {
                   height: 1,
                 ),
                 tokenItems(
-                  "assets/images/block-chain2.png",
+                  "assets/images/USD_LOGO.png",
                   "USD Coin",
                   "7944971646",
                   "+ 0.35%",
@@ -491,44 +502,6 @@ class HomePage extends StatelessWidget {
           color: Colors.black,
           fontWeight: FontWeight.w700,
         ),
-      ),
-    );
-  }
-
-  Widget sendReceiveWidget(IconData icon, String title, Size mq) {
-    return Container(
-      height: mq.height * 0.045,
-      width: mq.width * 0.28,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color.fromRGBO(190, 40, 246, 1),
-            Color.fromRGBO(105, 20, 245, 1),
-            Color.fromRGBO(18, 34, 244, 1)
-          ],
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            color: Colors.white,
-            size: 18,
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white,
-            ),
-          )
-        ],
       ),
     );
   }

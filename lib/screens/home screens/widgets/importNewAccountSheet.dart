@@ -1,5 +1,8 @@
 import 'package:crypto_wallet_app/common_widgets/gradientButton.dart';
 import 'package:crypto_wallet_app/core/colors.dart';
+import 'package:crypto_wallet_app/core/extension.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/purchaseMethodPage.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/scanQRcodeWidget.dart';
 import 'package:flutter/material.dart';
 
 Future importNewAccountSheet(
@@ -93,11 +96,20 @@ Future importNewAccountSheet(
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: mq.height * 0.02,
+                ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   height: mq.height * 0.1,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: const [
                       Expanded(
                         child: Text(
@@ -110,14 +122,71 @@ Future importNewAccountSheet(
                       ),
                     ],
                   ),
-                ),
+                ).toGradientBorder(15),
                 SizedBox(
                   height: mq.height * 0.025,
                 ),
-                gradientButton(
-                  mq,
-                  "Create",
-                  () {},
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          ScanQRCodePage.id,
+                        );
+                      },
+                      child: Container(
+                        height: mq.height * 0.05,
+                        width: mq.width * 0.38,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          "Scan QR Code",
+                          style: TextStyle(
+                            color: primaryColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ).toGradientBorder(18),
+                    ),
+                    SizedBox(
+                      width: mq.width * 0.025,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          PurchaseMethodPage.id,
+                        );
+                      },
+                      child: Container(
+                        height: mq.height * 0.06,
+                        width: mq.width * 0.38,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color.fromRGBO(190, 40, 246, 1),
+                              Color.fromRGBO(105, 20, 245, 1),
+                              Color.fromRGBO(18, 34, 244, 1)
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          "Import",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: mq.height * 0.025,
