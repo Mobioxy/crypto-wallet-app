@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 Widget gradientButton(Size mq, String title, Function() function) {
   return Container(
-    height: mq.height * 0.055,
-    width: mq.width * 0.85,
+    height: mq.height * 0.057,
+    width: mq.width * 0.95,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(18),
       gradient: const LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
@@ -18,7 +18,7 @@ Widget gradientButton(Size mq, String title, Function() function) {
     ),
     alignment: Alignment.center,
     child: GestureDetector(
-      onTap: () {},
+      onTap: function,
       child: Text(
         title,
         style:

@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:crypto_wallet_app/common_widgets/buttonwithGradientBorder.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/createNewAccountSheet.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/importNewAccountSheet.dart';
 import 'package:flutter/material.dart';
 
 import '../../common_widgets/gradientButton.dart';
@@ -288,14 +290,18 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 const Text(
                   "Networks",
                   style: TextStyle(
+                    fontSize: 18,
                     color: Colors.purple,
                     fontWeight: FontWeight.w600,
                   ),
+                ),
+                const SizedBox(
+                  height: 5,
                 ),
                 networkWidget(
                   "Ethereum Main Network",
@@ -414,13 +420,27 @@ class HomePage extends StatelessWidget {
                 ),
                 buttonwithGradientBorder(
                   mq: mq,
-                  function: () {},
+                  function: () {
+                    importNewAccountSheet(
+                      context,
+                      mq,
+                    );
+                  },
                   title: "Import an Account",
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                gradientButton(mq, "Create New Account", () {}),
+                gradientButton(
+                  mq,
+                  "Create New Account",
+                  () {
+                    createNewAccountSheet(
+                      context,
+                      mq,
+                    );
+                  },
+                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -515,9 +535,12 @@ class HomePage extends StatelessWidget {
 
   Widget networkWidget(String title, Color color, bool value) {
     return ListTile(
-        leading: CircleAvatar(
-          radius: 13,
-          backgroundColor: color,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            radius: 6,
+            backgroundColor: color,
+          ),
         ),
         title: Text(title),
         trailing: Radio(value: value, groupValue: true, onChanged: (v) {}));

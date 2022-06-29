@@ -6,10 +6,10 @@ Widget buttonwithGradientBorder({
   required String title,
 }) {
   return Container(
-    height: mq.height * 0.055,
-    width: mq.width * 0.85,
+     height: mq.height * 0.057,
+    width: mq.width * 0.95,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(18),
       gradient: const LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
@@ -26,7 +26,7 @@ Widget buttonwithGradientBorder({
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(18),
         ),
         alignment: Alignment.center,
         child: Text(

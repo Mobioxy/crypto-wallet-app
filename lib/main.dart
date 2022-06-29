@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Crypto Wallet App',
       theme: themeData(context),
-      initialRoute: ImportTokenScreen.id,
+      initialRoute: SplashPage.id,
       onGenerateRoute: AppRouter.router,
     );
   }
