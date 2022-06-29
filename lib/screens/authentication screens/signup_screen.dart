@@ -1,18 +1,18 @@
-import 'package:crypto_wallet_app/common%20widgets/textFieldContainer.dart';
+import 'package:crypto_wallet_app/common_widgets/text_field_container.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
-  static const id = "/SignupScreen";
+  static const id = '/SignupScreen';
   const SignupScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -28,7 +28,7 @@ class SignupScreen extends StatelessWidget {
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                         image: AssetImage(
-                          "assets/images/block-chain2.png",
+                          'assets/images/block-chain2.png',
                         ),
                       )),
                     ),
@@ -36,7 +36,7 @@ class SignupScreen extends StatelessWidget {
                       width: size.width * 0.05,
                     ),
                     const Text(
-                      "Signup",
+                      'Signup',
                       style: TextStyle(
                         fontSize: 30,
                         color: Colors.blue,
@@ -50,9 +50,9 @@ class SignupScreen extends StatelessWidget {
                 ),
                 textFieldContainer(
                   size,
-                  "Email Address*",
+                  'Email Address*',
                   TextEditingController(),
-                  "Enter your email address",
+                  'Enter your email address',
                   false,
                 ),
                 SizedBox(
@@ -60,9 +60,9 @@ class SignupScreen extends StatelessWidget {
                 ),
                 textFieldContainer(
                   size,
-                  "Password*",
+                  'Password*',
                   TextEditingController(),
-                  "Enter your password",
+                  'Enter your password',
                   true,
                 ),
                 SizedBox(
@@ -70,9 +70,9 @@ class SignupScreen extends StatelessWidget {
                 ),
                 textFieldContainer(
                   size,
-                  "Confirm Password*",
+                  'Confirm Password*',
                   TextEditingController(),
-                  "Enter your confirm password",
+                  'Enter your confirm password',
                   true,
                 ),
                 SizedBox(
@@ -81,7 +81,7 @@ class SignupScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   child: const Text(
-                    "Signup",
+                    'Signup',
                     style: TextStyle(
                       fontSize: 16,
                     ),
@@ -107,7 +107,7 @@ class SignupScreen extends StatelessWidget {
                 ),
                 RichText(
                   text: TextSpan(
-                    text: "Existing user ? ",
+                    text: 'Existing user ? ',
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
@@ -115,7 +115,7 @@ class SignupScreen extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                          text: "Login",
+                          text: 'Login',
                           style: const TextStyle(
                             color: Colors.blue,
                             fontSize: 18,

@@ -1,13 +1,14 @@
 import 'dart:ui';
 
-import 'package:crypto_wallet_app/common%20widgets/buttonwithGradientBorder.dart';
-import 'package:crypto_wallet_app/common%20widgets/gradientButton.dart';
+import 'package:crypto_wallet_app/common_widgets/buttonwithGradientBorder.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../common_widgets/gradientButton.dart';
+
 class HomeScreen extends StatefulWidget {
-  static const id = "/homeScreen";
+  static const id = '/homeScreen';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -30,11 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: _widget.elementAt(
-        selectedIndex,
-      ),
+    return Scaffold(
+      body: SafeArea(child: _widget.elementAt(selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 1,
         currentIndex: selectedIndex,
@@ -56,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-    ));
+    );
   }
 }
 
