@@ -1,5 +1,6 @@
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/widgets/received_details_bottom_sheet_widget.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/widgets/send_details_bottom_sheet_widget.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/widgets/transaction_history_widget.dart';
@@ -68,7 +69,9 @@ class TransactionSendScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, TransactionSendToScreen.id);
+                  },
                   child: sendReceiveWidget(
                     Icons.send_sharp,
                     "Send",
@@ -150,3 +153,4 @@ class TransactionSendScreen extends StatelessWidget {
     );
   }
 }
+

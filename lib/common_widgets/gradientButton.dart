@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget gradientButton(Size mq, String title, Function() function) {
   return Container(
-    height: mq.height * 0.057,
+    height: mq.height * 0.06,
     width: mq.width * 0.95,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(18),
