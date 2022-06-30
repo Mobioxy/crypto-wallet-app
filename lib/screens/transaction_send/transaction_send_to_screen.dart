@@ -96,7 +96,10 @@ class TransactionSendToScreen extends StatelessWidget {
             )),
             GradientButton(
               title: "Next",
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                    context, TransactionSendToAccountsScreen.id);
+              },
             ),
           ],
         ),

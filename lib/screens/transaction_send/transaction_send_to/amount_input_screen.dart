@@ -1,5 +1,5 @@
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
-import 'package:crypto_wallet_app/common_widgets/gradientButton.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/core/colors.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/token_selection_bottom_sheet.dart';
@@ -117,10 +117,9 @@ class _AmountInputScreenState extends State<AmountInputScreen> {
               ),
             ),
             const Spacer(),
-            gradientButton(
-              mq,
-              "Next",
-              () {},
+            GradientButton(
+              title: "Next",
+              onTap: () {},
             ),
             SizedBox(
               height: mq.height * 0.02,

@@ -1,5 +1,5 @@
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
-import 'package:crypto_wallet_app/common_widgets/gradientButton.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/amount_input_screen.dart';
 import 'package:flutter/material.dart';
@@ -54,12 +54,15 @@ class TransactionSendToAccountsScreen extends StatelessWidget {
               Icons.cancel_outlined,
             ),
             const Spacer(),
-            gradientButton(mq, "Next", () {
-              Navigator.pushNamed(
-                context,
-                AmountInputScreen.id,
-              );
-            }),
+            GradientButton(
+              title: "Next",
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  AmountInputScreen.id,
+                );
+              },
+            ),
             SizedBox(
               height: mq.height * 0.02,
             ),
