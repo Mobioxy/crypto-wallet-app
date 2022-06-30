@@ -1,3 +1,4 @@
+import 'package:crypto_wallet_app/common_widgets/account_tile.dart';
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
 import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
@@ -32,12 +33,12 @@ class TransactionSendToAccountsScreen extends StatelessWidget {
             SizedBox(
               height: mq.height * 0.02,
             ),
-            accountTile(
-              "assets/images/avatar1.png",
-              "Account 1",
-              "Balance : 213 BNB",
-              () => null,
-              Icons.arrow_forward_ios_outlined,
+            AccountTile(
+              image: "assets/images/avatar1.png",
+              title: "Account 1",
+              subTitle: "Balance : 213 BNB",
+              onTap: () {},
+              icon: Icons.arrow_forward_ios_outlined,
             ),
             SizedBox(
               height: mq.height * 0.02,
@@ -46,12 +47,12 @@ class TransactionSendToAccountsScreen extends StatelessWidget {
             SizedBox(
               height: mq.height * 0.02,
             ),
-            accountTile(
-              "assets/images/avatar3.png",
-              "Jerom Bell",
-              "0x..gaoeuhjaehhywebxlh",
-              () => null,
-              Icons.cancel_outlined,
+            AccountTile(
+              image: "assets/images/avatar3.png",
+              title: "Jerom Bell",
+              subTitle: "0x..gaoeuhjaehhywebxlh",
+              onTap: () {},
+              icon: Icons.cancel_outlined,
             ),
             const Spacer(),
             GradientButton(
@@ -80,42 +81,6 @@ class TransactionSendToAccountsScreen extends StatelessWidget {
         fontWeight: FontWeight.w600,
         fontSize: 16,
       ),
-    );
-  }
-
-  Widget accountTile(
-    String image,
-    String title,
-    String subTitle,
-    Function() function,
-    IconData icon,
-  ) {
-    return ListTile(
-      contentPadding: const EdgeInsets.symmetric(horizontal: 1),
-      leading: CircleAvatar(
-        backgroundImage: AssetImage(image),
-      ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      subtitle: Text(
-        subTitle,
-        style: TextStyle(
-          color: Colors.grey[600],
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-      trailing: IconButton(
-          onPressed: function,
-          icon: Icon(
-            icon,
-            color: Colors.black,
-            size: 16,
-          ).toGradient()),
     );
   }
 }

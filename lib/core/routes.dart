@@ -4,6 +4,7 @@ import 'package:crypto_wallet_app/screens/authentication%20screens/signup_screen
 import 'package:crypto_wallet_app/screens/home%20screens/home_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/scanQRcodeWidget.dart';
 import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/amount_send_preview_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -71,6 +72,10 @@ class AppRouter {
       case AmountInputScreen.id:
         return MaterialPageRoute(
           builder: (_) => const AmountInputScreen(),
+        );
+      case AmountSendPreviewScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const AmountSendPreviewScreen(),
         );
       // home page - import token
       case ImportTokenScreen.id:

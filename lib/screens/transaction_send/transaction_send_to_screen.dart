@@ -8,6 +8,8 @@ import 'package:crypto_wallet_app/screens/transaction_send/widgets/account_selec
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../common_widgets/account_tile.dart';
+
 class TransactionSendToScreen extends StatelessWidget {
   static const id = "/transactionSendToScreen";
   const TransactionSendToScreen({Key? key}) : super(key: key);
@@ -32,13 +34,14 @@ class TransactionSendToScreen extends StatelessWidget {
             titleText(
               "From",
             ),
-            accountTile(
-              "assets/images/avatar.jpg",
-              "Account 1",
-              "9.154 ETH",
-              () {
+            AccountTile(
+              image: "assets/images/avatar.jpg",
+              title: "Account 1",
+              subTitle: "9.154 ETH",
+              onTap: () {
                 accountSelectionBottomSheet(context, mq);
               },
+              icon: Icons.arrow_forward_ios_outlined,
             ),
             titleText(
               "To",
@@ -86,12 +89,27 @@ class TransactionSendToScreen extends StatelessWidget {
             Expanded(
                 child: ListView(
               children: [
-                accountTile("assets/images/avatar1.png", "Jane Cooper",
-                    "0x...ggljhaiuyigeo", () {}),
-                accountTile("assets/images/avatar2.jpg", "Marvin Mckinney",
-                    "0x...agewaghewyhah", () {}),
-                accountTile("assets/images/avatar3.png", "Jerom Bell",
-                    "0x...hayahghaegahe", () {}),
+                AccountTile(
+                  image: "assets/images/avatar1.png",
+                  title: "Jane Cooper",
+                  subTitle: "0x...ggljhaiuyigeo",
+                  onTap: () {},
+                  icon: Icons.arrow_forward_ios_outlined,
+                ),
+                AccountTile(
+                  image: "assets/images/avatar2.jpg",
+                  title: "Marvin Mckinney",
+                  subTitle: "0x...agewaghewyhah",
+                  onTap: () {},
+                  icon: Icons.arrow_forward_ios_outlined,
+                ),
+                AccountTile(
+                  image: "assets/images/avatar3.png",
+                  title: "Jerom Bell",
+                  subTitle: "0x...hayahghaegahe",
+                  onTap: () {},
+                  icon: Icons.arrow_forward_ios_outlined,
+                ),
               ],
             )),
             GradientButton(
@@ -115,37 +133,6 @@ class TransactionSendToScreen extends StatelessWidget {
         fontWeight: FontWeight.w600,
         fontSize: 16,
       ),
-    );
-  }
-
-  Widget accountTile(
-      String image, String title, String subTitle, Function() function) {
-    return ListTile(
-      contentPadding: const EdgeInsets.symmetric(horizontal: 1),
-      leading: CircleAvatar(
-        backgroundImage: AssetImage(image),
-      ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      subtitle: Text(
-        subTitle,
-        style: TextStyle(
-          color: Colors.grey[600],
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-      trailing: IconButton(
-          onPressed: function,
-          icon: const Icon(
-            Icons.arrow_forward_ios_outlined,
-            color: Colors.black,
-            size: 16,
-          ).toGradient()),
     );
   }
 

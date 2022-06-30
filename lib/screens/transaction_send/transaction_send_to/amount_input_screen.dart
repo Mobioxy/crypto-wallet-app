@@ -5,6 +5,8 @@ import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/token_selection_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
+import 'amount_send_preview_screen.dart';
+
 class AmountInputScreen extends StatefulWidget {
   static const id = "/amount_input_screen";
   const AmountInputScreen({Key? key}) : super(key: key);
@@ -119,7 +121,9 @@ class _AmountInputScreenState extends State<AmountInputScreen> {
             const Spacer(),
             GradientButton(
               title: "Next",
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed(AmountSendPreviewScreen.id);
+              },
             ),
             SizedBox(
               height: mq.height * 0.02,
