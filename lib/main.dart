@@ -6,14 +6,13 @@ import 'package:crypto_wallet_app/screens/authentication%20screens/login_screen.
 import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 void main() {
-  runApp(const MyApp());
-
+  runApp(const ProviderScope(child: MyApp()));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Crypto Wallet App',
       theme: themeData(context),
-      initialRoute: ImportTokenScreen.id,
+      initialRoute: SplashPage.id,
       onGenerateRoute: AppRouter.router,
     );
   }
