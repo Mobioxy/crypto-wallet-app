@@ -1,0 +1,118 @@
+import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
+import 'package:crypto_wallet_app/common_widgets/gradientButton.dart';
+import 'package:crypto_wallet_app/core/extension.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/amount_input_screen.dart';
+import 'package:flutter/material.dart';
+
+class TransactionSendToAccountsScreen extends StatelessWidget {
+  static const id = "/transactionAccountScreen";
+  const TransactionSendToAccountsScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var mq = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: BackAppBar(
+        context,
+        title: "Send To",
+      ),
+      body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 10,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: mq.height * 0.02,
+            ),
+            titleText("From"),
+            SizedBox(
+              height: mq.height * 0.02,
+            ),
+            accountTile(
+              "assets/images/avatar1.png",
+              "Account 1",
+              "Balance : 213 BNB",
+              () => null,
+              Icons.arrow_forward_ios_outlined,
+            ),
+            SizedBox(
+              height: mq.height * 0.02,
+            ),
+            titleText("To"),
+            SizedBox(
+              height: mq.height * 0.02,
+            ),
+            accountTile(
+              "assets/images/avatar3.png",
+              "Jerom Bell",
+              "0x..gaoeuhjaehhywebxlh",
+              () => null,
+              Icons.cancel_outlined,
+            ),
+            const Spacer(),
+            gradientButton(mq, "Next", () {
+              Navigator.pushNamed(
+                context,
+                AmountInputScreen.id,
+              );
+            }),
+            SizedBox(
+              height: mq.height * 0.02,
+            ),
+          ],
+        ),
+      )),
+    );
+  }
+
+  Widget titleText(String title, {Color? color = Colors.black}) {
+    return Text(
+      title,
+      style: TextStyle(
+        color: color,
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+      ),
+    );
+  }
+
+  Widget accountTile(
+    String image,
+    String title,
+    String subTitle,
+    Function() function,
+    IconData icon,
+  ) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 1),
+      leading: CircleAvatar(
+        backgroundImage: AssetImage(image),
+      ),
+      title: Text(
+        title,
+        style: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      subtitle: Text(
+        subTitle,
+        style: TextStyle(
+          color: Colors.grey[600],
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      trailing: IconButton(
+          onPressed: function,
+          icon: Icon(
+            icon,
+            color: Colors.black,
+            size: 16,
+          ).toGradient()),
+    );
+  }
+}

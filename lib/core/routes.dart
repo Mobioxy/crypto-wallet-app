@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 
 import '../screens/home screens/widgets/purchaseMethodPage.dart';
 import '../screens/transaction_send/transaction_send_screen.dart';
+import '../screens/transaction_send/transaction_send_to/amount_input_screen.dart';
+import '../screens/transaction_send/transaction_send_to/transaction_send_to_accounts_screen.dart';
 
 class AppRouter {
   static Route<dynamic> _errorRoute() {
@@ -61,6 +63,14 @@ class AppRouter {
       case TransactionSendToScreen.id:
         return MaterialPageRoute(
           builder: (_) => const TransactionSendToScreen(),
+        );
+      case TransactionSendToAccountsScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const TransactionSendToAccountsScreen(),
+        );
+      case AmountInputScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const AmountInputScreen(),
         );
       // home page - import token
       case ImportTokenScreen.id:

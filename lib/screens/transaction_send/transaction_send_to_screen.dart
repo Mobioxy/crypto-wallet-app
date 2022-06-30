@@ -3,6 +3,8 @@ import 'package:crypto_wallet_app/common_widgets/buttonwithGradientBorder.dart';
 import 'package:crypto_wallet_app/common_widgets/gradientButton.dart';
 import 'package:crypto_wallet_app/common_widgets/text_field_container.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/scanQRcodeWidget.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/transaction_send_to_accounts_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/widgets/account_selection_bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,6 +55,7 @@ class TransactionSendToScreen extends StatelessWidget {
                 "Search, public address or ENS",
                 TextEditingController(),
                 false,
+                context,
               ),
             ),
             SizedBox(
@@ -93,7 +96,12 @@ class TransactionSendToScreen extends StatelessWidget {
                     "0x...hayahghaegahe", () {}),
               ],
             )),
-            gradientButton(mq, "Next", () {}),
+            gradientButton(mq, "Next", () {
+              Navigator.pushNamed(
+                context,
+                TransactionSendToAccountsScreen.id,
+              );
+            }),
           ],
         ),
       )),
@@ -148,6 +156,7 @@ class TransactionSendToScreen extends StatelessWidget {
     String hintText,
     TextEditingController controller,
     bool obscureText,
+    BuildContext context,
   ) {
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -192,7 +201,9 @@ class TransactionSendToScreen extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, ScanQRCodePage.id);
+                  },
                   icon: const Icon(Icons.qr_code_scanner).toGradient(),
                 ),
               ],
