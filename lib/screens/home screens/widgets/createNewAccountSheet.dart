@@ -1,4 +1,4 @@
-import 'package:crypto_wallet_app/common_widgets/gradientButton.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/core/colors.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
@@ -85,14 +85,8 @@ Future createNewAccountSheet(
                 SizedBox(
                   height: mq.height * 0.025,
                 ),
-                gradientButton(
-                  mq,
-                  "Create",
-                  () {},
-                ),
-                SizedBox(
-                  height: mq.height * 0.025,
-                ),
+                GradientButton(title: 'Create', onTap: () {}),
+                SizedBox(height: mq.height * 0.025),
               ],
             ),
           ),

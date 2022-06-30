@@ -7,3 +7,5 @@ const Color secondColor = Color.fromRGBO(105, 20, 245, 1);
 const Color thirdColor = Color.fromRGBO(18, 34, 244, 1);
 
 const Color lightGreyColor = Color.fromRGBO(219, 222, 226, 1);
+
+const Color errorText = Colors.red;

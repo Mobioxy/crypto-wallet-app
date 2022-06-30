@@ -1,5 +1,5 @@
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
-import 'package:crypto_wallet_app/common_widgets/gradientButton.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
@@ -95,10 +95,9 @@ class PurchaseMethodPage extends StatelessWidget {
               ),
             ).toGradientBorder(18),
             const Spacer(),
-            gradientButton(
-              mq,
-              "Buy ETH with Transak",
-              () {},
+            GradientButton(
+              title: "Buy ETH with Transak",
+              onTap: () {},
             ),
           ],
         ),

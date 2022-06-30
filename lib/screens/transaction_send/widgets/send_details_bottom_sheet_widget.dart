@@ -1,4 +1,3 @@
-import 'package:crypto_wallet_app/common_widgets/buttonwithGradientBorder.dart';
 import 'package:crypto_wallet_app/common_widgets/title_value_column_widget.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
