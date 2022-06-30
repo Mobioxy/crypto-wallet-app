@@ -1,7 +1,6 @@
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
-import 'package:crypto_wallet_app/common_widgets/buttonwithGradientBorder.dart';
-import 'package:crypto_wallet_app/common_widgets/gradientButton.dart';
-import 'package:crypto_wallet_app/common_widgets/text_field_container.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button_with_border.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/widgets/account_selection_bottomsheet.dart';
 import 'package:flutter/material.dart';
@@ -60,10 +59,9 @@ class TransactionSendToScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: buttonwithGradientBorder(
-                mq: mq,
-                function: () {},
+              child: GradientButtonWithBorder(
                 title: "Transfer Between My Accounts",
+                onTap: () {},
               ),
             ),
             SizedBox(
@@ -93,7 +91,10 @@ class TransactionSendToScreen extends StatelessWidget {
                     "0x...hayahghaegahe", () {}),
               ],
             )),
-            gradientButton(mq, "Next", () {}),
+            GradientButton(
+              title: "Next",
+              onTap: () {},
+            ),
           ],
         ),
       )),

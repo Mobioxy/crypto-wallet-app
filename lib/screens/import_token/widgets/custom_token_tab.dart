@@ -1,4 +1,5 @@
-import 'package:crypto_wallet_app/common_widgets/cta_button.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button_with_border.dart';
 import 'package:crypto_wallet_app/common_widgets/text_field_container.dart';
 import 'package:flutter/material.dart';
 
@@ -58,16 +59,18 @@ class CustomTokenTab extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              CTAButton(
-                text: 'Cancel',
+            children: [
+              GradientButtonWithBorder(
+                title: 'Cancle',
                 height: 40,
                 width: 140,
+                onTap: () {},
               ),
-              CTAButton(
-                text: 'Import',
+              GradientButton(
+                title: 'Import',
                 height: 40,
                 width: 140,
+                onTap: () {},
               ),
             ],
           ),

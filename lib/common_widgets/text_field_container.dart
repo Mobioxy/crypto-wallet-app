@@ -7,43 +7,81 @@ Widget textFieldContainer(
   String title,
   TextEditingController controller,
   String hintText,
-  bool obscureText,
-) {
+  bool obscureText, {
+  bool showTitle = true,
+  bool isMandatory = false,
+  Color fillColor = Colors.transparent,
+  double horizontalPadding = 20.0,
+  double verticalPadding = 10.0,
+  Icon? suffixIcon,
+  Icon? prefixIcon,
+}) {
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
-      Align(
+      if (showTitle)
+        Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Text(
+                  title,
+                  style: GoogleFonts.lato(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                if (isMandatory)
+                  Text(
+                    ' *',
+                    style: GoogleFonts.lato(
+                        fontWeight: FontWeight.bold, color: errorText),
+                  ),
+              ],
             ),
-            child: Text(
-              title,
-              style: GoogleFonts.lato(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          )),
-      SizedBox(
-        height: size.height * 0.015,
-      ),
+          ),
+        ),
+      if (showTitle)
+        SizedBox(
+          height: size.height * 0.01,
+        ),
       Container(
         height: size.height * 0.065,
         alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.grey,
-          ),
-          borderRadius: BorderRadius.circular(20),
-        ),
         child: TextFormField(
           obscureText: obscureText,
           controller: controller,
           decoration: InputDecoration(
+            filled: true,
+            fillColor: fillColor,
             hintText: hintText,
-            border: InputBorder.none,
+            suffixIcon: suffixIcon,
+            prefixIcon: prefixIcon,
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: horizontalPadding,
+              vertical: verticalPadding,
+            ),
+            border:
+                UnderlineInputBorder(borderRadius: BorderRadius.circular(50)),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Color(0xffD3DAE0)),
+              borderRadius: BorderRadius.circular(50),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Color(0xffD3DAE0)),
+              borderRadius: BorderRadius.circular(50),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.red),
+              // borderSide: const BorderSide(color: Color(0xffD3DAE0)),
+              borderRadius: BorderRadius.circular(50),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.red),
+              // borderSide: const BorderSide(color: Color(0xffD3DAE0)),
+              borderRadius: BorderRadius.circular(50),
+            ),
           ),
         ),
       ),

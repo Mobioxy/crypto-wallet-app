@@ -1,5 +1,5 @@
 // ignore: file_names
-import 'package:crypto_wallet_app/common_widgets/buttonwithGradientBorder.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button_with_border.dart';
 import 'package:crypto_wallet_app/common_widgets/title_value_column_widget.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
@@ -139,10 +139,9 @@ receievedDetailsShowModalBottomSheet(
               SizedBox(
                 height: mq.height * 0.025,
               ),
-              buttonwithGradientBorder(
-                mq: mq,
+              GradientButtonWithBorder(
                 title: "View on Mainnet",
-                function: () {},
+                onTap: () {},
               ),
               SizedBox(
                 height: mq.height * 0.01,

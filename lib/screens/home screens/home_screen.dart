@@ -1,16 +1,13 @@
-import 'dart:ui';
-
-import 'package:crypto_wallet_app/common_widgets/buttonwithGradientBorder.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button_with_border.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/createNewAccountSheet.dart';
-import 'package:crypto_wallet_app/screens/home%20screens/widgets/importNewAccountSheet.dart';
+import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../../common_widgets/gradientButton.dart';
-import '../../common_widgets/send_receive_widget.dart';
+import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
+import 'package:crypto_wallet_app/common_widgets/send_receive_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   static const id = '/homeScreen';
@@ -269,8 +266,12 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          buttonwithGradientBorder(
-              mq: mq, function: () {}, title: "+ Import Tokens"),
+          GradientButtonWithBorder(
+            title: "+ Import Tokens",
+            onTap: () {
+              Navigator.of(context).pushNamed(ImportTokenScreen.id);
+            },
+          ),
           const SizedBox(
             height: 10,
           ),
@@ -360,10 +361,9 @@ class HomePage extends StatelessWidget {
                   Colors.blue,
                   false,
                 ),
-                buttonwithGradientBorder(
-                  mq: mq,
-                  function: () {},
+                GradientButtonWithBorder(
                   title: "Close",
+                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 10,
@@ -429,32 +429,21 @@ class HomePage extends StatelessWidget {
                   "assets/images/avatar.jpg",
                   false,
                 ),
-                buttonwithGradientBorder(
-                  mq: mq,
-                  function: () {
-                    importNewAccountSheet(
-                      context,
-                      mq,
-                    );
-                  },
+                GradientButtonWithBorder(
                   title: "Import an Account",
+                  onTap: () {},
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                gradientButton(
-                  mq,
-                  "Create New Account",
-                  () {
+                const SizedBox(height: 10),
+                GradientButton(
+                  title: "Create New Account",
+                  onTap: () {
                     createNewAccountSheet(
                       context,
                       mq,
                     );
                   },
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
               ],
             ),
           );
