@@ -2,6 +2,7 @@ import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/common_widgets/gradient_button_with_border.dart';
 import 'package:crypto_wallet_app/common_widgets/text_field_container.dart';
 import 'package:crypto_wallet_app/core/colors.dart';
+import 'package:crypto_wallet_app/screens/import_token/widgets/import_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class SearchTab extends StatelessWidget {
@@ -37,13 +38,24 @@ class SearchTab extends StatelessWidget {
                 title: 'Cancle',
                 height: 40,
                 width: 140,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
               ),
               GradientButton(
                 title: 'Import',
                 height: 40,
                 width: 140,
-                onTap: () {},
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    builder: (_) {
+                      return const ImportBottomSheet();
+                    },
+                  );
+                },
               ),
             ],
           ),
