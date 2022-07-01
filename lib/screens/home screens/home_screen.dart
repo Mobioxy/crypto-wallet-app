@@ -3,11 +3,14 @@ import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/createNewAccountSheet.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/home_page_account_bottom_sheet.dart';
 import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/common_widgets/send_receive_widget.dart';
+
+import '../transaction_receive/transaction_receive_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const id = '/homeScreen';
@@ -75,7 +78,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: GestureDetector(
             onTap: () {
-              accountBottomSheet(context, mq);
+              accountBottomSheet(context);
             },
             child: const CircleAvatar(
               backgroundImage: AssetImage(
@@ -218,10 +221,17 @@ class HomePage extends StatelessWidget {
                     SizedBox(
                       width: mq.width * 0.03,
                     ),
-                    sendReceiveWidget(
-                      Icons.get_app_sharp,
-                      "Receive",
-                      mq,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                          TransactionReceiveScreen.id,
+                        );
+                      },
+                      child: sendReceiveWidget(
+                        Icons.get_app_sharp,
+                        "Receive",
+                        mq,
+                      ),
                     ),
                     SizedBox(
                       width: mq.width * 0.03,
@@ -374,82 +384,6 @@ class HomePage extends StatelessWidget {
         });
   }
 
-  accountBottomSheet(BuildContext context, Size mq) {
-    showModalBottomSheet(
-        context: context,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(
-              26,
-            ),
-            topRight: Radius.circular(
-              26,
-            ),
-          ),
-        ),
-        builder: (context) {
-          return SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  "Accounts",
-                  style: TextStyle(
-                    color: Colors.purple,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                accountWidget(
-                  "Account 1",
-                  "9.1574 ETH",
-                  "assets/images/avatar.jpg",
-                  false,
-                ),
-                accountWidget(
-                  "Account 2",
-                  "3.1574 ETH",
-                  "assets/images/avatar.jpg",
-                  false,
-                ),
-                accountWidget(
-                  "Account 3",
-                  "2.1574 ETH",
-                  "assets/images/avatar.jpg",
-                  false,
-                ),
-                accountWidget(
-                  "Account 4",
-                  "4.1574 ETH",
-                  "assets/images/avatar.jpg",
-                  false,
-                ),
-                GradientButtonWithBorder(
-                  title: "Import an Account",
-                  onTap: () {},
-                ),
-                const SizedBox(height: 10),
-                GradientButton(
-                  title: "Create New Account",
-                  onTap: () {
-                    createNewAccountSheet(
-                      context,
-                      mq,
-                    );
-                  },
-                ),
-                const SizedBox(height: 10),
-              ],
-            ),
-          );
-        });
-  }
-
   Widget tokenItems(String leadingImage, String title, String subTitle,
       String subTitle2, String trailingTitle) {
     return ListTile(
@@ -505,22 +439,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
         title: Text(title),
-        trailing: Radio(value: value, groupValue: true, onChanged: (v) {}));
-  }
-
-  Widget accountWidget(
-      String title, String subTitle, String image, bool value) {
-    return ListTile(
-        leading: CircleAvatar(
-          radius: 18,
-          backgroundImage: AssetImage(
-            image,
-          ),
-        ),
-        title: Text(title),
-        subtitle: Text(
-          subTitle,
-        ),
         trailing: Radio(value: value, groupValue: true, onChanged: (v) {}));
   }
 }

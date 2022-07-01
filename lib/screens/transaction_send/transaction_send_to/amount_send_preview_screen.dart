@@ -4,6 +4,7 @@ import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common_widgets/account_tile.dart';
+import 'edit_network_fee_widget.dart';
 
 class AmountSendPreviewScreen extends StatelessWidget {
   static const id = "/amountSendPreviewScreen";
@@ -127,7 +128,24 @@ class AmountSendPreviewScreen extends StatelessWidget {
                               width: 3,
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                showModalBottomSheet(
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(
+                                          26,
+                                        ),
+                                        topRight: Radius.circular(
+                                          26,
+                                        ),
+                                      ),
+                                    ),
+                                    isScrollControlled: true,
+                                    context: context,
+                                    builder: (context) {
+                                      return const EditNetworkFeeWidget();
+                                    });
+                              },
                               icon: const Icon(
                                 Icons.edit,
                                 size: 17,
