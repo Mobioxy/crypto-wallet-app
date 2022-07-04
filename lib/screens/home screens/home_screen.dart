@@ -4,6 +4,8 @@ import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/createNewAccountSheet.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/home_page_account_bottom_sheet.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/network_selection_bottom_sheet.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/token_item_widget.dart';
 import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_screen.dart';
 import 'package:flutter/material.dart';
@@ -139,16 +141,8 @@ class HomePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    Icon(
-                      Icons.currency_exchange,
-                      size: 20,
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
                     Text(
-                      "9.3729 ETH",
+                      r"$ 9.3729",
                       style: TextStyle(
                         fontSize: 15,
                         color: Colors.black,
@@ -246,32 +240,32 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: mq.height * 0.04,
                 ),
-                tokenItems(
-                  "assets/images/Binance_Logo.png",
-                  "Binance Coin",
-                  "12374971646",
-                  "+ 0.15%",
-                  "466 BNB",
+                const TokenItemWidget(
+                  leadingImage: "assets/images/Binance_Logo.png",
+                  title: "Binance Coin",
+                  subTitle: "12374971646",
+                  subTitle2: "+ 0.15%",
+                  trailingTitle: "466 BNB",
                 ),
                 const Divider(
                   height: 1,
                 ),
-                tokenItems(
-                  "assets/images/USD_LOGO.png",
-                  "USD Coin",
-                  "7944971646",
-                  "+ 0.35%",
-                  "46 USDC",
+                const TokenItemWidget(
+                  leadingImage: "assets/images/USD_LOGO.png",
+                  title: "USD Coin",
+                  subTitle: "7944971646",
+                  subTitle2: "+ 0.35%",
+                  trailingTitle: "46 USDC",
                 ),
                 const Divider(
                   height: 1,
                 ),
-                tokenItems(
-                  "assets/images/avatar.jpg",
-                  "Avatar Coin",
-                  "7874971646",
-                  "+ 0.75%",
-                  "466 AT",
+                const TokenItemWidget(
+                  leadingImage: "assets/images/USD_LOGO.png",
+                  title: "USD Coin",
+                  subTitle: "7874971646",
+                  subTitle2: "+ 0.75%",
+                  trailingTitle: "466 AT",
                 ),
               ],
             ),
@@ -288,157 +282,5 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  networkBottomSheet(
-    BuildContext context,
-    Size mq,
-  ) {
-    showModalBottomSheet(
-        context: context,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(
-              26,
-            ),
-            topRight: Radius.circular(
-              26,
-            ),
-          ),
-        ),
-        builder: (context) {
-          return SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  "Networks",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.purple,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                networkWidget(
-                  "Ethereum Main Network",
-                  Colors.green,
-                  true,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                  ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Other Networks",
-                      style: TextStyle(
-                        color: Colors.purple,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                networkWidget(
-                  "Ropstan Test Network",
-                  Colors.red,
-                  false,
-                ),
-                networkWidget(
-                  "Kovan Test Network",
-                  Colors.purple,
-                  false,
-                ),
-                networkWidget(
-                  "Rinkeby Test Network",
-                  Colors.orange,
-                  false,
-                ),
-                networkWidget(
-                  "Goreli Test Network",
-                  Colors.blue,
-                  false,
-                ),
-                GradientButtonWithBorder(
-                  title: "Close",
-                  onTap: () {},
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-              ],
-            ),
-          );
-        });
-  }
-
-  Widget tokenItems(String leadingImage, String title, String subTitle,
-      String subTitle2, String trailingTitle) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: AssetImage(
-          leadingImage,
-        ),
-      ),
-      title: Text(
-        title,
-      ),
-      subtitle: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            subTitle,
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.grey,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(
-            width: 7,
-          ),
-          Text(
-            subTitle2,
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.green,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-        ],
-      ),
-      trailing: Text(
-        trailingTitle,
-        style: const TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-    );
-  }
-
-  Widget networkWidget(String title, Color color, bool value) {
-    return ListTile(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            radius: 6,
-            backgroundColor: color,
-          ),
-        ),
-        title: Text(title),
-        trailing: Radio(value: value, groupValue: true, onChanged: (v) {}));
   }
 }

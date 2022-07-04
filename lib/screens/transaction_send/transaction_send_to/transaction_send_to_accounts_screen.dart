@@ -1,7 +1,6 @@
 import 'package:crypto_wallet_app/common_widgets/account_tile.dart';
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
 import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
-import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/amount_input_screen.dart';
 import 'package:flutter/material.dart';
 

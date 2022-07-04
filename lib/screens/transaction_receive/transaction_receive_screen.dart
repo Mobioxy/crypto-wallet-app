@@ -3,6 +3,8 @@ import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
+import 'amount_input_request_payment.dart';
+
 class TransactionReceiveScreen extends StatelessWidget {
   static const id = "/TransactionReceiveScreen";
   const TransactionReceiveScreen({Key? key}) : super(key: key);
@@ -93,7 +95,16 @@ class TransactionReceiveScreen extends StatelessWidget {
               ),
             ),
             Center(
-                child: GradientButton(title: "Request Payment", onTap: () {})),
+              child: GradientButton(
+                title: "Request Payment",
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    AmountInputRequestPaymentScreen.id,
+                  );
+                },
+              ),
+            ),
           ],
         ),
       )),

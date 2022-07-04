@@ -9,7 +9,9 @@ import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to_s
 import 'package:flutter/material.dart';
 
 import '../screens/home screens/widgets/purchaseMethodPage.dart';
+import '../screens/transaction_receive/amount_input_request_payment.dart';
 import '../screens/transaction_receive/transaction_receive_screen.dart';
+import '../screens/transaction_receive/transaction_receive_send_link.dart';
 import '../screens/transaction_send/transaction_send_screen.dart';
 import '../screens/transaction_send/transaction_send_to/amount_input_screen.dart';
 import '../screens/transaction_send/transaction_send_to/transaction_send_to_accounts_screen.dart';
@@ -87,6 +89,14 @@ class AppRouter {
       case ImportTokenScreen.id:
         return MaterialPageRoute(
           builder: (_) => const ImportTokenScreen(),
+        );
+      case AmountInputRequestPaymentScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const AmountInputRequestPaymentScreen(),
+        );
+      case TransactionReceiveSendLinkScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const TransactionReceiveSendLinkScreen(),
         );
 
       default:
