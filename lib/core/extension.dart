@@ -29,7 +29,7 @@ extension GradientBorderWidget on Widget {
     return Container(
       child: this,
       alignment: Alignment.center,
-      padding: const EdgeInsets.all(2.3),
+      padding: const EdgeInsets.all(1.5),
       decoration: BoxDecoration(
           gradient: gradient, borderRadius: BorderRadius.circular(radius)),
     );

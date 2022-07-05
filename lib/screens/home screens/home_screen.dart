@@ -1,16 +1,13 @@
 import 'package:crypto_wallet_app/common_widgets/gradient_button_with_border.dart';
-import 'package:crypto_wallet_app/common_widgets/select_network_container.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
-import 'package:crypto_wallet_app/screens/home%20screens/widgets/createNewAccountSheet.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/home_page_account_bottom_sheet.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/network_selection_bottom_sheet.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/token_item_widget.dart';
 import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/common_widgets/send_receive_widget.dart';
 
 import '../transaction_receive/transaction_receive_screen.dart';
@@ -47,17 +44,23 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: (value) {
           setSelectedIndex(value);
         },
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_balance_wallet_rounded),
+            icon: selectedIndex == 0
+                ? const Icon(Icons.account_balance_wallet_rounded).toGradient()
+                : const Icon(Icons.account_balance_wallet_rounded),
             label: 'Wallet',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.swap_horiz_rounded),
+            icon: selectedIndex == 1
+                ? const Icon(Icons.swap_horiz_rounded).toGradient()
+                : const Icon(Icons.swap_horiz_rounded),
             label: 'Swap',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: selectedIndex == 2
+                ? const Icon(Icons.settings).toGradient()
+                : const Icon(Icons.settings),
             label: 'Setting',
           ),
         ],
