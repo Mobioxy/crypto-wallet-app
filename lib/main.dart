@@ -1,14 +1,18 @@
 import 'dart:async';
 import 'package:crypto_wallet_app/core/routes.dart';
 import 'package:crypto_wallet_app/core/theme.dart';
+import 'package:crypto_wallet_app/firebase_options.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/login_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const ProviderScope(child: MyApp()));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(

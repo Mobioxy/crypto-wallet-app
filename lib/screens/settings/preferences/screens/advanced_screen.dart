@@ -1,6 +1,5 @@
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
 import 'package:crypto_wallet_app/common_widgets/gradient_button_with_border.dart';
-import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 class AdvancedScreen extends StatelessWidget {

@@ -1,5 +1,6 @@
 import 'package:crypto_wallet_app/core/colors.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/logout_bottom_sheet.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/settings_page_container.dart';
 import 'package:crypto_wallet_app/screens/settings/preferences/preferences.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +67,16 @@ class SettingPage extends StatelessWidget {
             SettingsPageContainer(
               text: 'Logout',
               icon: Icons.logout,
-              onTap: () {},
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  isScrollControlled: false,
+                  builder: (_) {
+                    return const LogoutBottomSheet();
+                  },
+                );
+              },
             ),
           ],
         ),

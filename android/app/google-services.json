@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "78404688814",
+    "project_id": "mobioxy-apps",
+    "storage_bucket": "mobioxy-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78404688814:android:f0642f57d66c5a6e62463f",
+        "android_client_info": {
+          "package_name": "com.example.crypto_wallet_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78404688814-vutmq1rh12fgnbcc02r6acgtjv46jdo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgNvXWAig8SJIrwOECbufvh-0GaIwae0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78404688814-vutmq1rh12fgnbcc02r6acgtjv46jdo4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "78404688814-jb3k3chiv3a1pvlvjetllj0oifhm659a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cryptoWalletApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class GradientButtonWithBorder extends StatelessWidget {
   final String title;
   final double? height;
+  final double borderRadius;
   final double? width;
   final VoidCallback? onTap;
 
@@ -12,6 +13,7 @@ class GradientButtonWithBorder extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.height,
+    this.borderRadius = 18.0,
     this.width,
   }) : super(key: key);
 
@@ -23,7 +25,7 @@ class GradientButtonWithBorder extends StatelessWidget {
       height: height ?? mq.height * 0.06,
       width: width ?? mq.width * 0.95,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(borderRadius),
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -40,7 +42,7 @@ class GradientButtonWithBorder extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
           alignment: Alignment.center,
           child: Text(
