@@ -13,11 +13,16 @@ import 'package:crypto_wallet_app/screens/settings/preferences/screens/experimen
 import 'package:crypto_wallet_app/screens/settings/preferences/screens/general_screen.dart';
 import 'package:crypto_wallet_app/screens/settings/preferences/screens/networks_screen.dart';
 import 'package:crypto_wallet_app/screens/settings/preferences/screens/secutiry_privacy_screen.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/amount_send_preview_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../screens/home screens/widgets/purchaseMethodPage.dart';
-import '../screens/transaction_send/transaction_send_screen.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/purchaseMethodPage.dart';
+import 'package:crypto_wallet_app/screens/transaction_receive/amount_input_request_payment.dart';
+import 'package:crypto_wallet_app/screens/transaction_receive/transaction_receive_screen.dart';
+import 'package:crypto_wallet_app/screens/transaction_receive/transaction_receive_send_link.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_screen.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/amount_input_screen.dart';
+import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/transaction_send_to_accounts_screen.dart';
 
 class AppRouter {
   static Route<dynamic> _errorRoute() {
@@ -71,6 +76,23 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const TransactionSendToScreen(),
         );
+      case TransactionSendToAccountsScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const TransactionSendToAccountsScreen(),
+        );
+      case AmountInputScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const AmountInputScreen(),
+        );
+      case AmountSendPreviewScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const AmountSendPreviewScreen(),
+        );
+      // home page - transaction receive
+      case TransactionReceiveScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const TransactionReceiveScreen(),
+        );
       // home page - import token
       case ImportTokenScreen.id:
         return MaterialPageRoute(
@@ -111,6 +133,14 @@ class AppRouter {
       case SecutiryPrivacyScreen.id:
         return MaterialPageRoute(
           builder: (_) => const SecutiryPrivacyScreen(),
+        );
+      case AmountInputRequestPaymentScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const AmountInputRequestPaymentScreen(),
+        );
+      case TransactionReceiveSendLinkScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const TransactionReceiveSendLinkScreen(),
         );
 
       default:
