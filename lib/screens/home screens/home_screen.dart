@@ -1,4 +1,5 @@
 import 'package:crypto_wallet_app/common_widgets/gradient_button_with_border.dart';
+import 'package:crypto_wallet_app/common_widgets/select_network_container.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/settings_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_token_screen.dart';
@@ -96,7 +97,7 @@ class HomePage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: const [
                 Text(
-                  "Ethereum Main",
+                  'Ethereum Main',
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black,
@@ -123,7 +124,7 @@ class HomePage extends StatelessWidget {
                   height: mq.height * 0.035,
                 ),
                 const Text(
-                  "9.3729 ETH",
+                  '9.3729 ETH',
                   style: TextStyle(
                     fontSize: 26,
                     color: Colors.purpleAccent,
@@ -145,7 +146,7 @@ class HomePage extends StatelessWidget {
                       width: 5,
                     ),
                     Text(
-                      "9.3729 ETH",
+                      '9.3729 ETH',
                       style: TextStyle(
                         fontSize: 15,
                         color: Colors.black,
@@ -156,7 +157,7 @@ class HomePage extends StatelessWidget {
                       width: 5,
                     ),
                     Text(
-                      "+ 0.7%",
+                      '+ 0.7%',
                       style: TextStyle(
                         fontSize: 15,
                         color: Colors.green,
@@ -180,7 +181,7 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text(
-                        "0x7aCaaa8238........9eTas",
+                        '0x7aCaaa8238........9eTas',
                         style: TextStyle(
                           color: Colors.black,
                         ),
@@ -211,7 +212,7 @@ class HomePage extends StatelessWidget {
                       },
                       child: sendReceiveWidget(
                         Icons.send_sharp,
-                        "Send",
+                        'Send',
                         mq,
                       ),
                     ),
@@ -220,7 +221,7 @@ class HomePage extends StatelessWidget {
                     ),
                     sendReceiveWidget(
                       Icons.get_app_sharp,
-                      "Receive",
+                      'Receive',
                       mq,
                     ),
                     SizedBox(
@@ -228,7 +229,7 @@ class HomePage extends StatelessWidget {
                     ),
                     sendReceiveWidget(
                       Icons.shopping_bag,
-                      "Buy",
+                      'Buy',
                       mq,
                     )
                   ],
@@ -237,37 +238,37 @@ class HomePage extends StatelessWidget {
                   height: mq.height * 0.04,
                 ),
                 tokenItems(
-                  "assets/images/Binance_Logo.png",
-                  "Binance Coin",
-                  "12374971646",
-                  "+ 0.15%",
-                  "466 BNB",
+                  'assets/images/Binance_Logo.png',
+                  'Binance Coin',
+                  '12374971646',
+                  '+ 0.15%',
+                  '466 BNB',
                 ),
                 const Divider(
                   height: 1,
                 ),
                 tokenItems(
-                  "assets/images/USD_LOGO.png",
-                  "USD Coin",
-                  "7944971646",
-                  "+ 0.35%",
-                  "46 USDC",
+                  'assets/images/USD_LOGO.png',
+                  'USD Coin',
+                  '7944971646',
+                  '+ 0.35%',
+                  '46 USDC',
                 ),
                 const Divider(
                   height: 1,
                 ),
                 tokenItems(
-                  "assets/images/avatar.jpg",
-                  "Avatar Coin",
-                  "7874971646",
-                  "+ 0.75%",
-                  "466 AT",
+                  'assets/images/avatar.jpg',
+                  'Avatar Coin',
+                  '7874971646',
+                  '+ 0.75%',
+                  '466 AT',
                 ),
               ],
             ),
           ),
           GradientButtonWithBorder(
-            title: "+ Import Tokens",
+            title: '+ Import Tokens',
             onTap: () {
               Navigator.of(context).pushNamed(ImportTokenScreen.id);
             },
@@ -285,93 +286,84 @@ class HomePage extends StatelessWidget {
     Size mq,
   ) {
     showModalBottomSheet(
-        context: context,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(
-              26,
-            ),
-            topRight: Radius.circular(
-              26,
-            ),
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(
+            26,
+          ),
+          topRight: Radius.circular(
+            26,
           ),
         ),
-        builder: (context) {
-          return SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 20,
+      ),
+      builder: (context) {
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20),
+              const Text(
+                'Networks',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.purple,
+                  fontWeight: FontWeight.w600,
                 ),
-                const Text(
-                  "Networks",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.purple,
-                    fontWeight: FontWeight.w600,
-                  ),
+              ),
+              const SizedBox(height: 5),
+              const SelectNetworkContainer(
+                title: 'Ethereum Main Network',
+                value: true,
+                color: Colors.green,
+              ),
+              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10,
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
-                networkWidget(
-                  "Ethereum Main Network",
-                  Colors.green,
-                  true,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                  ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Other Networks",
-                      style: TextStyle(
-                        color: Colors.purple,
-                        fontWeight: FontWeight.w600,
-                      ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Other Networks',
+                    style: TextStyle(
+                      color: Colors.purple,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                networkWidget(
-                  "Ropstan Test Network",
-                  Colors.red,
-                  false,
-                ),
-                networkWidget(
-                  "Kovan Test Network",
-                  Colors.purple,
-                  false,
-                ),
-                networkWidget(
-                  "Rinkeby Test Network",
-                  Colors.orange,
-                  false,
-                ),
-                networkWidget(
-                  "Goreli Test Network",
-                  Colors.blue,
-                  false,
-                ),
-                GradientButtonWithBorder(
-                  title: "Close",
-                  onTap: () {},
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-              ],
-            ),
-          );
-        });
+              ),
+              const SizedBox(height: 10),
+              const SelectNetworkContainer(
+                title: 'Ropstan Test Network',
+                value: false,
+                color: Colors.red,
+              ),
+              const SelectNetworkContainer(
+                title: 'Kovan Test Network',
+                value: false,
+                color: Colors.purple,
+              ),
+              const SelectNetworkContainer(
+                title: 'Rinkeby Test Network',
+                value: false,
+                color: Colors.orange,
+              ),
+              const SelectNetworkContainer(
+                title: 'Goreli Test Network',
+                value: false,
+                color: Colors.blue,
+              ),
+              GradientButtonWithBorder(
+                title: 'Close',
+                onTap: () {},
+              ),
+              const SizedBox(height: 10),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   accountBottomSheet(BuildContext context, Size mq) {
@@ -396,7 +388,7 @@ class HomePage extends StatelessWidget {
                   height: 10,
                 ),
                 const Text(
-                  "Accounts",
+                  'Accounts',
                   style: TextStyle(
                     color: Colors.purple,
                     fontWeight: FontWeight.w800,
@@ -406,36 +398,36 @@ class HomePage extends StatelessWidget {
                   height: 10,
                 ),
                 accountWidget(
-                  "Account 1",
-                  "9.1574 ETH",
-                  "assets/images/avatar.jpg",
+                  'Account 1',
+                  '9.1574 ETH',
+                  'assets/images/avatar.jpg',
                   false,
                 ),
                 accountWidget(
-                  "Account 2",
-                  "3.1574 ETH",
-                  "assets/images/avatar.jpg",
+                  'Account 2',
+                  '3.1574 ETH',
+                  'assets/images/avatar.jpg',
                   false,
                 ),
                 accountWidget(
-                  "Account 3",
-                  "2.1574 ETH",
-                  "assets/images/avatar.jpg",
+                  'Account 3',
+                  '2.1574 ETH',
+                  'assets/images/avatar.jpg',
                   false,
                 ),
                 accountWidget(
-                  "Account 4",
-                  "4.1574 ETH",
-                  "assets/images/avatar.jpg",
+                  'Account 4',
+                  '4.1574 ETH',
+                  'assets/images/avatar.jpg',
                   false,
                 ),
                 GradientButtonWithBorder(
-                  title: "Import an Account",
+                  title: 'Import an Account',
                   onTap: () {},
                 ),
                 const SizedBox(height: 10),
                 GradientButton(
-                  title: "Create New Account",
+                  title: 'Create New Account',
                   onTap: () {
                     createNewAccountSheet(
                       context,
@@ -495,18 +487,23 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget networkWidget(String title, Color color, bool value) {
-    return ListTile(
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            radius: 6,
-            backgroundColor: color,
-          ),
-        ),
-        title: Text(title),
-        trailing: Radio(value: value, groupValue: true, onChanged: (v) {}));
-  }
+  // Widget networkWidget(String title, Color color, bool value) {
+  //   return ListTile(
+  //     leading: Padding(
+  //       padding: const EdgeInsets.all(8.0),
+  //       child: CircleAvatar(
+  //         radius: 6,
+  //         backgroundColor: color,
+  //       ),
+  //     ),
+  //     title: Text(title),
+  //     trailing: Radio(
+  //       value: value,
+  //       groupValue: true,
+  //       onChanged: (v) {},
+  //     ),
+  //   );
+  // }
 
   Widget accountWidget(
       String title, String subTitle, String image, bool value) {

@@ -5,6 +5,14 @@ import 'package:crypto_wallet_app/screens/home%20screens/home_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_confirmation_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/scanQRcodeWidget.dart';
 import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
+import 'package:crypto_wallet_app/screens/settings/preferences/preferences.dart';
+import 'package:crypto_wallet_app/screens/settings/preferences/screens/about_metacoin_screen.dart';
+import 'package:crypto_wallet_app/screens/settings/preferences/screens/advanced_screen.dart';
+import 'package:crypto_wallet_app/screens/settings/preferences/screens/contacts_screen.dart';
+import 'package:crypto_wallet_app/screens/settings/preferences/screens/experimental_screen.dart';
+import 'package:crypto_wallet_app/screens/settings/preferences/screens/general_screen.dart';
+import 'package:crypto_wallet_app/screens/settings/preferences/screens/networks_screen.dart';
+import 'package:crypto_wallet_app/screens/settings/preferences/screens/secutiry_privacy_screen.dart';
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -71,6 +79,38 @@ class AppRouter {
       case SwapConfirmationScreen.id:
         return MaterialPageRoute(
           builder: (_) => const SwapConfirmationScreen(),
+        );
+      case PreferencesScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const PreferencesScreen(),
+        );
+      case AboutMetacoinScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const AboutMetacoinScreen(),
+        );
+      case AdvancedScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const AdvancedScreen(),
+        );
+      case ContactsScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const ContactsScreen(),
+        );
+      case ExperimentalScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const ExperimentalScreen(),
+        );
+      case GeneralScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const GeneralScreen(),
+        );
+      case NetworksScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const NetworksScreen(),
+        );
+      case SecutiryPrivacyScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const SecutiryPrivacyScreen(),
         );
 
       default:
