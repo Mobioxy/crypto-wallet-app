@@ -16,7 +16,7 @@ class PreferencesTileContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         child: Column(
           children: [
             Row(
@@ -29,11 +29,16 @@ class PreferencesTileContainer extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const Icon(Icons.arrow_forward_ios_rounded).toGradient(),
+                const Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 18,
+                ).toGradient(),
               ],
             ),
             const SizedBox(height: 10),
-            const Divider()
+            const Divider(
+              thickness: 1,
+            )
           ],
         ),
       ),
