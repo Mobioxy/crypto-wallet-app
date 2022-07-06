@@ -25,6 +25,7 @@ import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/a
 import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/transaction_send_to_accounts_screen.dart';
 
 import '../screens/settings/preferences/screens/contact_us_screen.dart';
+import '../screens/settings/preferences/screens/faq_screen.dart';
 
 class AppRouter {
   static Route<dynamic> _errorRoute() {
@@ -147,6 +148,10 @@ class AppRouter {
       case ContactUsScreen.id:
         return MaterialPageRoute(
           builder: (_) => const ContactUsScreen(),
+        );
+      case FAQScreen.id:
+        return MaterialPageRoute(
+          builder: (_) => const FAQScreen(),
         );
 
       default:

@@ -4,6 +4,8 @@ import 'package:crypto_wallet_app/screens/settings/preferences/screens/contact_u
 import 'package:crypto_wallet_app/screens/settings/preferences/widgets/preferences_tile_container.dart';
 import 'package:flutter/material.dart';
 
+import 'faq_screen.dart';
+
 class AboutMetacoinScreen extends StatelessWidget {
   static const String id = '/settings/preferences/aboutmetacoin';
 
@@ -108,7 +110,9 @@ class AboutMetacoinScreen extends StatelessWidget {
                   ),
                   PreferencesTileContainer(
                     text: "FAQ",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, FAQScreen.id);
+                    },
                   ),
                   PreferencesTileContainer(
                     text: "Visit Our Website",
