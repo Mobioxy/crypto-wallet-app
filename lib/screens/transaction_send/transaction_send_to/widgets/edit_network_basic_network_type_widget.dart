@@ -65,7 +65,9 @@ class _BasicNetworkTypeWidgetState extends State<BasicNetworkTypeWidget> {
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.grey[800]
+                    : Colors.white,
                 borderRadius: BorderRadius.circular(11),
               ),
               child: Row(
@@ -76,7 +78,6 @@ class _BasicNetworkTypeWidgetState extends State<BasicNetworkTypeWidget> {
                     data[index]["type"],
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: Colors.black,
                       fontSize: 16,
                     ),
                   ),
@@ -87,7 +88,6 @@ class _BasicNetworkTypeWidgetState extends State<BasicNetworkTypeWidget> {
                         data[index]["token"],
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
-                          color: Colors.black,
                           fontSize: 16,
                         ),
                       ),

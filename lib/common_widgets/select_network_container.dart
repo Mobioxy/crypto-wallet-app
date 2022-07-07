@@ -1,3 +1,4 @@
+import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 class SelectNetworkContainer extends StatelessWidget {
@@ -27,7 +28,7 @@ class SelectNetworkContainer extends StatelessWidget {
         value: value,
         groupValue: true,
         onChanged: (v) {},
-      ),
+      ).toGradient(),
     );
   }
 }

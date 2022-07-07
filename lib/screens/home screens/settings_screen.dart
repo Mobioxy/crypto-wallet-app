@@ -1,5 +1,6 @@
 import 'package:crypto_wallet_app/core/colors.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
+import 'package:crypto_wallet_app/screens/home%20screens/widgets/home_page_account_bottom_sheet.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/logout_bottom_sheet.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/settings_page_container.dart';
 import 'package:crypto_wallet_app/screens/settings/preferences/preferences.dart';
@@ -13,13 +14,17 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
-        leading: const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundImage: AssetImage(
-              'assets/images/avatar.jpg',
+        leading: GestureDetector(
+          onTap: () {
+            accountBottomSheet(context);
+          },
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              backgroundImage: AssetImage(
+                'assets/images/avatar.jpg',
+              ),
             ),
           ),
         ),
@@ -28,8 +33,15 @@ class SettingPage extends StatelessWidget {
           "Settings",
           style: TextStyle(
             fontSize: 18,
-            color: Colors.black,
           ),
+        ),
+        bottom: const PreferredSize(
+          child: Divider(
+            thickness: 1,
+            indent: 12,
+            endIndent: 12,
+          ),
+          preferredSize: Size.fromHeight(12),
         ),
       ),
       body: Padding(

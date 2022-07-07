@@ -80,7 +80,6 @@ Widget accountWidget(
     title: Text(
       title,
       style: const TextStyle(
-        color: Colors.black,
         fontWeight: FontWeight.w600,
       ),
     ),

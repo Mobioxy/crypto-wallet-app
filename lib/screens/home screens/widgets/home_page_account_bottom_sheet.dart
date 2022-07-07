@@ -73,6 +73,7 @@ class HomePageAccountWidget extends StatelessWidget {
           GradientButtonWithBorder(
             title: "Import an Account",
             onTap: () {},
+            isFromBottomSheet: true,
           ),
           const SizedBox(height: 10),
           GradientButton(

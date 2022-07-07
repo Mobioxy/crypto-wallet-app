@@ -142,42 +142,49 @@ class FAQScreen extends ConsumerWidget {
                         isOpen: true,
                         contentText:
                             'Metacoin is greatest crypto wallet platform in this century',
+                        context: context,
                       ),
                       accordionSection(
                         header: 'How to use Metacoin ?',
                         isOpen: false,
                         contentText:
                             'Metacoin is greatest crypto wallet platform in this century',
+                        context: context,
                       ),
                       accordionSection(
                         header: 'Is Metacoin is safe for me ?',
                         isOpen: false,
                         contentText:
                             'Metacoin is greatest crypto wallet platform in this century',
+                        context: context,
                       ),
                       accordionSection(
                         header: 'How to send money on metacoin ?',
                         isOpen: false,
                         contentText:
                             'Metacoin is greatest crypto wallet platform in this century',
+                        context: context,
                       ),
                       accordionSection(
                         header: 'How to reset account in Metacoin ?',
                         isOpen: false,
                         contentText:
                             'Metacoin is greatest crypto wallet platform in this century',
+                        context: context,
                       ),
                       accordionSection(
                         header: 'Is there a tips for get a used this app ?',
                         isOpen: false,
                         contentText:
                             'Metacoin is greatest crypto wallet platform in this century',
+                        context: context,
                       ),
                       accordionSection(
                         header: 'Is Metacoin free to use ?',
                         isOpen: false,
                         contentText:
                             'Metacoin is greatest crypto wallet platform in this century',
+                        context: context,
                       ),
                     ]),
               ],
@@ -192,13 +199,18 @@ class FAQScreen extends ConsumerWidget {
     required String header,
     required String contentText,
     required bool isOpen,
+    required BuildContext context,
   }) {
     return AccordionSection(
       isOpen: isOpen, paddingBetweenClosedSections: 25,
       paddingBetweenOpenSections: 25,
       headerBorderRadius: 0,
-      headerBackgroundColorOpened: Colors.grey[200],
-      headerBackgroundColor: Colors.white,
+      headerBackgroundColorOpened:
+          Theme.of(context).brightness == Brightness.dark
+              ? Colors.grey[900]
+              : Colors.grey[200],
+      headerBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      contentBackgroundColor: Theme.of(context).scaffoldBackgroundColor,
       rightIcon: const Icon(
         Icons.keyboard_arrow_down,
       ).toGradient(),

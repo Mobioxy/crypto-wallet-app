@@ -19,14 +19,21 @@ class SwapTokenPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: const Text(
           'Swap tokens',
           style: TextStyle(
-            color: Colors.black,
+            fontSize: 18,
           ),
+        ),
+        bottom: const PreferredSize(
+          child: Divider(
+            thickness: 1,
+            indent: 12,
+            endIndent: 12,
+          ),
+          preferredSize: Size.fromHeight(12),
         ),
       ),
       body: Padding(

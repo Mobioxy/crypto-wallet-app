@@ -60,14 +60,12 @@ Widget transactionHistoryWidget({
                       Text(
                         title,
                         style: const TextStyle(
-                          color: Colors.black,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                       Text(
                         value,
                         style: const TextStyle(
-                          color: Colors.black,
                           fontWeight: FontWeight.w700,
                         ),
                       )

@@ -51,7 +51,9 @@ sendDetailsShowModalBottomSheet(
                   titleValueWidget(
                     "Date",
                     "February 30, 2022 at 10:32 AM",
-                    Colors.black,
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
                     isLeft: false,
                   )
                 ],
@@ -65,12 +67,16 @@ sendDetailsShowModalBottomSheet(
                   titleValueWidget(
                     "From",
                     "0x....aghoewuoblahhs",
-                    Colors.black,
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
                   ),
                   titleValueWidget(
                     "To",
                     "0x....aoyughwpoeubhpoaj",
-                    Colors.black,
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
                     isLeft: false,
                   )
                 ],
@@ -81,7 +87,9 @@ sendDetailsShowModalBottomSheet(
               titleValueWidget(
                 "Nonce",
                 "#0",
-                Colors.black,
+                Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
               ),
               SizedBox(
                 height: mq.height * 0.025,
@@ -89,7 +97,9 @@ sendDetailsShowModalBottomSheet(
               Container(
                   height: mq.height * 0.2,
                   decoration: BoxDecoration(
-                    color: Colors.grey[100],
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.grey[800]
+                        : Colors.grey[100],
                     borderRadius: BorderRadius.circular(12),
                   ),
                   alignment: Alignment.center,
@@ -116,7 +126,6 @@ sendDetailsShowModalBottomSheet(
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
-                              color: Colors.black,
                             ),
                           ),
                         ],
@@ -137,7 +146,6 @@ sendDetailsShowModalBottomSheet(
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
-                              color: Colors.black,
                             ),
                           ),
                         ],
@@ -154,7 +162,6 @@ sendDetailsShowModalBottomSheet(
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
-                              color: Colors.black,
                             ),
                           ),
                           Column(
@@ -166,7 +173,6 @@ sendDetailsShowModalBottomSheet(
                                 style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,
-                                  color: Colors.black,
                                 ),
                               ),
                               Text(

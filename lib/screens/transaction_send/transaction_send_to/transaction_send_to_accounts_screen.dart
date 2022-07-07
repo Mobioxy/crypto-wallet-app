@@ -75,8 +75,7 @@ class TransactionSendToAccountsScreen extends StatelessWidget {
   Widget titleText(String title, {Color? color = Colors.black}) {
     return Text(
       title,
-      style: TextStyle(
-        color: color,
+      style: const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 16,
       ),

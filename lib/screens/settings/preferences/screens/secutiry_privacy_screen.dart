@@ -42,7 +42,7 @@ class SecutiryPrivacyScreen extends StatelessWidget {
                   height: mq.height * 0.045,
                   width: mq.width * 0.4,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.circular(46),
                   ),
                   child: const Text(
@@ -81,7 +81,7 @@ class SecutiryPrivacyScreen extends StatelessWidget {
               alignment: Alignment.center,
               height: mq.height * 0.05,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: BorderRadius.circular(46),
               ),
               child: const Text(

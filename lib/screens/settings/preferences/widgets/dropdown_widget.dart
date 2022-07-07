@@ -26,7 +26,6 @@ class CommonDropDownWidget extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            color: Colors.black,
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
@@ -39,7 +38,9 @@ class CommonDropDownWidget extends StatelessWidget {
           height: mq.height * 0.054,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.black
+                : Colors.white,
             borderRadius: BorderRadius.circular(48),
           ),
           child: DropdownButton(

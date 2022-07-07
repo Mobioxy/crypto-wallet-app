@@ -7,6 +7,7 @@ class GradientButtonWithBorder extends StatelessWidget {
   final double borderRadius;
   final double? width;
   final VoidCallback? onTap;
+  final bool isFromBottomSheet;
 
   const GradientButtonWithBorder({
     Key? key,
@@ -15,6 +16,7 @@ class GradientButtonWithBorder extends StatelessWidget {
     this.height,
     this.borderRadius = 18.0,
     this.width,
+    this.isFromBottomSheet = false,
   }) : super(key: key);
 
   @override
@@ -41,7 +43,9 @@ class GradientButtonWithBorder extends StatelessWidget {
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isFromBottomSheet
+                ? Theme.of(context).bottomSheetTheme.backgroundColor
+                : Theme.of(context).scaffoldBackgroundColor,
             borderRadius: BorderRadius.circular(borderRadius),
           ),
           alignment: Alignment.center,

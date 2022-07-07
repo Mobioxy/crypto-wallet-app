@@ -27,7 +27,6 @@ class AccountTile extends StatelessWidget {
       title: Text(
         title,
         style: const TextStyle(
-          color: Colors.black,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -42,7 +41,6 @@ class AccountTile extends StatelessWidget {
           onPressed: onTap,
           icon: Icon(
             icon,
-            color: Colors.black,
             size: 16,
           ).toGradient()),
     );

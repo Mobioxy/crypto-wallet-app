@@ -40,7 +40,7 @@ class ContactUsScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 height: mq.height * 0.060,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(48),
                 ),
                 child: const TextField(
@@ -68,7 +68,7 @@ class ContactUsScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 height: mq.height * 0.060,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(48),
                 ),
                 child: const TextField(
@@ -99,7 +99,7 @@ class ContactUsScreen extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 height: mq.height * 0.25,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: const TextField(

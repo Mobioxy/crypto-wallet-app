@@ -43,7 +43,6 @@ class _TransactionReceiveSendLinkScreenState
                   const Text(
                     "Your request link is already to send!",
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
@@ -59,7 +58,6 @@ class _TransactionReceiveSendLinkScreenState
                       "Send this link to friend, and it will ask them to send 0.00001 ETH",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.black,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -88,6 +86,7 @@ class _TransactionReceiveSendLinkScreenState
                         Icons.copy,
                         mq,
                         () {},
+                        context,
                       ),
                       SizedBox(
                         width: mq.width * 0.02,
@@ -99,6 +98,7 @@ class _TransactionReceiveSendLinkScreenState
                         () {
                           qrCodeBottomSheet(context);
                         },
+                        context,
                       ),
                     ],
                   ),
@@ -122,6 +122,7 @@ class _TransactionReceiveSendLinkScreenState
     IconData icon,
     Size mq,
     VoidCallback? onTap,
+    BuildContext context,
   ) {
     return GestureDetector(
       onTap: onTap,
@@ -130,7 +131,7 @@ class _TransactionReceiveSendLinkScreenState
         height: mq.height * 0.05,
         width: mq.width * 0.4,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).scaffoldBackgroundColor,
           borderRadius: BorderRadius.circular(18),
         ),
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [

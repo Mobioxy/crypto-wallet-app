@@ -1,6 +1,7 @@
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
 import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/common_widgets/select_network_container.dart';
+import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 class NetworksScreen extends StatelessWidget {
@@ -17,46 +18,45 @@ class NetworksScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
-            children: const [
-              SizedBox(height: 10),
-              SelectNetworkContainer(
+            children: [
+              const SizedBox(height: 10),
+              const SelectNetworkContainer(
                 title: 'Ethereum Main Network',
                 value: true,
                 color: Colors.green,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 10,
                 ),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
+                  child: const Text(
                     'Other Networks',
                     style: TextStyle(
-                      color: Colors.purple,
                       fontWeight: FontWeight.w600,
                     ),
-                  ),
+                  ).toGradient(),
                 ),
               ),
-              SizedBox(height: 10),
-              SelectNetworkContainer(
+              const SizedBox(height: 10),
+              const SelectNetworkContainer(
                 title: 'Ropstan Test Network',
                 value: false,
                 color: Colors.red,
               ),
-              SelectNetworkContainer(
+              const SelectNetworkContainer(
                 title: 'Kovan Test Network',
                 value: false,
                 color: Colors.purple,
               ),
-              SelectNetworkContainer(
+              const SelectNetworkContainer(
                 title: 'Rinkeby Test Network',
                 value: false,
                 color: Colors.orange,
               ),
-              SelectNetworkContainer(
+              const SelectNetworkContainer(
                 title: 'Goreli Test Network',
                 value: false,
                 color: Colors.blue,

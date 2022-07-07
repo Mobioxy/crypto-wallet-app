@@ -90,7 +90,9 @@ class _TokenListState extends State<TokenList> {
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.grey[900]
+                    : Colors.white,
                 borderRadius: BorderRadius.circular(11),
               ),
               child: Row(
@@ -101,7 +103,6 @@ class _TokenListState extends State<TokenList> {
                     index == 0 ? "Binance Coin" : "USD Coin",
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: Colors.black,
                       fontSize: 16,
                     ),
                   ),
@@ -112,7 +113,6 @@ class _TokenListState extends State<TokenList> {
                         index == 0 ? "4,789 BNB" : "487 USD",
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
-                          color: Colors.black,
                           fontSize: 16,
                         ),
                       ),

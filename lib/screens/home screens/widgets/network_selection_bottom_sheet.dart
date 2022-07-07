@@ -1,3 +1,4 @@
+import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common_widgets/gradient_button_with_border.dart';
@@ -42,7 +43,7 @@ class NetworkSelectionBottomSheetWidget extends StatelessWidget {
               color: Colors.purple,
               fontWeight: FontWeight.w600,
             ),
-          ),
+          ).toGradient(),
           const SizedBox(
             height: 5,
           ),
@@ -95,6 +96,7 @@ class NetworkSelectionBottomSheetWidget extends StatelessWidget {
           GradientButtonWithBorder(
             title: "Close",
             onTap: () {},
+            isFromBottomSheet: true,
           ),
           const SizedBox(
             height: 10,

@@ -45,7 +45,6 @@ class TransactionSendScreen extends StatelessWidget {
                   "9.3729 ",
                   style: TextStyle(
                     fontSize: 15,
-                    color: Colors.black,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
@@ -153,4 +152,3 @@ class TransactionSendScreen extends StatelessWidget {
     );
   }
 }
-

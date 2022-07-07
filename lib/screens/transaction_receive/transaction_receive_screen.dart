@@ -31,6 +31,7 @@ class TransactionReceiveScreen extends StatelessWidget {
                     height: mq.height * 0.3,
                     width: mq.width * 0.6,
                     decoration: const BoxDecoration(
+                      color: Colors.white,
                       image: DecorationImage(
                         image: AssetImage(
                           "assets/images/QR code.png",
@@ -38,10 +39,12 @@ class TransactionReceiveScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: mq.height * 0.02,
+                  ),
                   const Text(
                     "Scan address to receive payment",
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
@@ -56,7 +59,9 @@ class TransactionReceiveScreen extends StatelessWidget {
                         height: mq.height * 0.05,
                         width: mq.width * 0.55,
                         decoration: BoxDecoration(
-                          color: Colors.grey[100],
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.grey[900]
+                              : Colors.grey[100],
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: Row(
@@ -81,7 +86,9 @@ class TransactionReceiveScreen extends StatelessWidget {
                         height: mq.height * 0.05,
                         width: mq.width * 0.1,
                         decoration: BoxDecoration(
-                          color: Colors.grey[200],
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.grey[900]
+                              : Colors.grey[200],
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: const Icon(

@@ -29,6 +29,9 @@ class _AmountInputScreenState extends State<AmountInputScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+              height: mq.height * 0.015,
+            ),
             Center(
               child: SizedBox(
                 height: mq.height * 0.05,
@@ -41,7 +44,7 @@ class _AmountInputScreenState extends State<AmountInputScreen> {
                       height: mq.height * 0.05,
                       width: mq.width * 0.35,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).scaffoldBackgroundColor,
                         borderRadius: BorderRadius.circular(
                           18,
                         ),
@@ -97,13 +100,14 @@ class _AmountInputScreenState extends State<AmountInputScreen> {
               width: mq.width * 0.35,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
-                color: Colors.grey[200],
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.grey[900]
+                    : Colors.grey[200],
               ),
               alignment: Alignment.center,
               child: const Text(
                 r"$ 1557",
                 style: TextStyle(
-                  color: Colors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),

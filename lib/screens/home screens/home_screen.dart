@@ -78,7 +78,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -103,23 +102,29 @@ class HomePage extends StatelessWidget {
             },
             child: Row(
               mainAxisSize: MainAxisSize.min,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   'Ethereum Main',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.black,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Icon(
+                const Icon(
                   Icons.keyboard_arrow_down,
-                  color: Colors.black,
-                )
+                ).toGradient()
               ],
             )),
+        bottom: const PreferredSize(
+          child: Divider(
+            thickness: 1,
+            indent: 12,
+            endIndent: 12,
+          ),
+          preferredSize: Size.fromHeight(12),
+        ),
       ),
       body: Column(
         children: [
@@ -135,7 +140,6 @@ class HomePage extends StatelessWidget {
                   '9.3729 ETH',
                   style: TextStyle(
                     fontSize: 26,
-                    color: Colors.purpleAccent,
                     fontWeight: FontWeight.w800,
                   ),
                 ).toGradient(),
@@ -149,7 +153,6 @@ class HomePage extends StatelessWidget {
                       r"$ 9.3729",
                       style: TextStyle(
                         fontSize: 15,
-                        color: Colors.black,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
@@ -174,26 +177,24 @@ class HomePage extends StatelessWidget {
                   width: mq.width * 0.6,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 242, 239, 239),
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? const Color.fromARGB(255, 32, 31, 31)
+                        : const Color.fromARGB(255, 242, 239, 239),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         '0x7aCaaa8238........9eTas',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.copy,
-                        color: Colors.purple,
                         size: 20,
-                      )
+                      ).toGradient()
                     ],
                   ),
                 ),

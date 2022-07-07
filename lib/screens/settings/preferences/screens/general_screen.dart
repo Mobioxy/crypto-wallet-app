@@ -1,12 +1,14 @@
 import 'package:crypto_wallet_app/common_widgets/app_bars.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
+import 'package:crypto_wallet_app/core/provider/theme_provider.dart';
 import 'package:crypto_wallet_app/screens/settings/preferences/widgets/switch_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../widgets/dropdown_widget.dart';
 
 // ignore: must_be_immutable
-class GeneralScreen extends StatelessWidget {
+class GeneralScreen extends ConsumerWidget {
   static const String id = '/settings/preferences/general';
 
   GeneralScreen({
@@ -21,7 +23,7 @@ class GeneralScreen extends StatelessWidget {
   String? selectedSearchEngine;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     var mq = MediaQuery.of(context).size;
     return Scaffold(
       appBar: BackAppBar(context, title: 'General'),
@@ -47,7 +49,6 @@ class GeneralScreen extends StatelessWidget {
                   const Text(
                     "Currency Conversion",
                     style: TextStyle(
-                      color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                     ),
@@ -125,10 +126,17 @@ class GeneralScreen extends StatelessWidget {
                 height: mq.height * 0.02,
               ),
               SwitchTileWidget(
-                onChanged: (v) {},
-                title: "Dark Mode",
-                value: false,
-              ),
+                  onChanged: (v) {
+                    if (v == true) {
+                      ref.read(themeProvider).setThemeType("dark");
+                    } else {
+                      ref.read(themeProvider).setThemeType("light");
+                    }
+                  },
+                  title: "Dark Mode",
+                  value: ref.watch(themeProvider).themeType == ThemeType.dark
+                      ? true
+                      : false),
             ],
           ),
         ),

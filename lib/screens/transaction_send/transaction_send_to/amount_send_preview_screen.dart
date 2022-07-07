@@ -79,7 +79,9 @@ class AmountSendPreviewScreen extends StatelessWidget {
             Container(
                 height: mq.height * 0.2,
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.grey[900]
+                      : Colors.grey[100],
                   borderRadius: BorderRadius.circular(12),
                 ),
                 alignment: Alignment.center,
@@ -106,7 +108,6 @@ class AmountSendPreviewScreen extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 14,
-                            color: Colors.black,
                           ),
                         ),
                       ],
@@ -158,7 +159,6 @@ class AmountSendPreviewScreen extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 14,
-                            color: Colors.black,
                           ),
                         ),
                       ],
@@ -175,7 +175,6 @@ class AmountSendPreviewScreen extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
-                            color: Colors.black,
                           ),
                         ),
                         Column(
@@ -187,7 +186,6 @@ class AmountSendPreviewScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
-                                color: Colors.black,
                               ),
                             ),
                             Text(

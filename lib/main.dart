@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:crypto_wallet_app/core/preferences.dart';
+import 'package:crypto_wallet_app/core/provider/theme_provider.dart';
 import 'package:crypto_wallet_app/core/routes.dart';
 import 'package:crypto_wallet_app/core/theme.dart';
 import 'package:crypto_wallet_app/firebase_options.dart';
@@ -10,10 +12,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
+import 'locator/locator.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
+  configLocator();
+  final Preferences prefs = locator<Preferences>();
+  await prefs.initialization();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -24,15 +35,20 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var provider = ref.watch(themeProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Crypto Wallet App',
       theme: themeData(context),
+      darkTheme: darkThemeData(context),
+      themeMode: provider.themeType == ThemeType.dark
+          ? ThemeMode.dark
+          : ThemeMode.light,
       initialRoute: SplashPage.id,
       onGenerateRoute: AppRouter.router,
     );

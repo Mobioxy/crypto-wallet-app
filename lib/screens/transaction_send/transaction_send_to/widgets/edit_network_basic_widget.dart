@@ -23,10 +23,9 @@ class BasicNetworkFees extends StatelessWidget {
           SizedBox(
             height: mq.height * 0.03,
           ),
-          Text(
+          const Text(
             "The network fee covers the cost of proccessing your transaction on the Ethereum Network.",
-            style:
-                TextStyle(color: Colors.grey[900], fontWeight: FontWeight.w500),
+            style: TextStyle(fontWeight: FontWeight.w500),
           ),
           SizedBox(
             height: mq.height * 0.03,

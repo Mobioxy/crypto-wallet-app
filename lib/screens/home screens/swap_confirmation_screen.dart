@@ -22,7 +22,9 @@ class SwapConfirmationScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(20),
                   margin: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: lightBackgroundColor,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? darkBackgroundColor
+                        : lightBackgroundColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(

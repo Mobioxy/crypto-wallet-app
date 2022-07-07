@@ -1,7 +1,6 @@
 import 'package:crypto_wallet_app/core/colors.dart';
 import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class BackAppBar extends PreferredSize {
   BackAppBar(BuildContext context, {Key? key, required String title})
@@ -9,7 +8,9 @@ class BackAppBar extends PreferredSize {
           key: key,
           preferredSize: const Size.fromHeight(100),
           child: Container(
-            color: Colors.white,
+            color: Theme.of(context).brightness == Brightness.light
+                ? Colors.white
+                : Colors.black,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -18,7 +19,6 @@ class BackAppBar extends PreferredSize {
                     title,
                     style: const TextStyle(
                       fontSize: 17,
-                      color: Colors.black,
                       letterSpacing: 1,
                       fontWeight: FontWeight.w600,
                     ),
@@ -26,8 +26,10 @@ class BackAppBar extends PreferredSize {
                   elevation: 0,
                   leadingWidth: 70,
                   centerTitle: true,
-                  backgroundColor: Colors.white,
-                  systemOverlayStyle: SystemUiOverlayStyle.dark,
+                  backgroundColor:
+                      Theme.of(context).brightness == Brightness.light
+                          ? Colors.white
+                          : Colors.black,
                   leading: IconButton(
                     icon: const Icon(Icons.arrow_back).toGradient(),
                     color: primaryColor,
