@@ -14,7 +14,7 @@ class GradientButtonWithBorder extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.height,
-    this.borderRadius = 18.0,
+    this.borderRadius = 50.0,
     this.width,
     this.isFromBottomSheet = false,
   }) : super(key: key);

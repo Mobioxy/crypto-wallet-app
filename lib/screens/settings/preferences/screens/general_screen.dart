@@ -25,6 +25,7 @@ class GeneralScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var mq = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: BackAppBar(context, title: 'General'),
       body: SafeArea(

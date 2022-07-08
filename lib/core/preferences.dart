@@ -12,9 +12,9 @@ class Preferences {
   }
 
   Future setThemeMode(String type) async =>
-      _sharedPreferences?.setString(_themeMode, type);
+      await _sharedPreferences?.setString(themeModeKey, type);
 
-  String? get themeMode => _sharedPreferences?.getString(_themeMode);
+  String? get themeMode => _sharedPreferences?.getString(themeModeKey);
 }
 
-const String _themeMode = "themeMode";
+const String themeModeKey = "themeMode";

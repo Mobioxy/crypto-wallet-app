@@ -77,7 +77,7 @@ class HomePage extends StatelessWidget {
     var mq = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0,
         automaticallyImplyLeading: false,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),

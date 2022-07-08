@@ -6,12 +6,14 @@ class SettingsPageContainer extends StatelessWidget {
   final String text;
   final IconData icon;
   final VoidCallback onTap;
+  final bool isLoagout;
 
   const SettingsPageContainer({
     Key? key,
     required this.text,
     required this.icon,
     required this.onTap,
+    this.isLoagout = false,
   }) : super(key: key);
 
   @override
@@ -31,10 +33,16 @@ class SettingsPageContainer extends StatelessWidget {
                   height: 40,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: lightIconBackgroundColor,
+                    color:
+                        isLoagout ? Colors.red[100] : lightIconBackgroundColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Icon(icon).toGradient(),
+                  child: isLoagout
+                      ? Icon(
+                          icon,
+                          color: Colors.red[700],
+                        )
+                      : Icon(icon).toGradient(),
                 ),
                 const SizedBox(width: 20),
                 Text(

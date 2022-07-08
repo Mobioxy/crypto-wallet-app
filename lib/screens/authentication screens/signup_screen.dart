@@ -1,7 +1,10 @@
 import 'package:crypto_wallet_app/common_widgets/text_field_container.dart';
+import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+import '../../common_widgets/gradient_button_with_border.dart';
 
 class SignupScreen extends StatelessWidget {
   static const id = '/SignupScreen';
@@ -42,7 +45,7 @@ class SignupScreen extends StatelessWidget {
                         color: Colors.blue,
                         fontWeight: FontWeight.w500,
                       ),
-                    ),
+                    ).toGradient(),
                   ],
                 ),
                 SizedBox(
@@ -78,40 +81,23 @@ class SignupScreen extends StatelessWidget {
                 SizedBox(
                   height: size.height * 0.045,
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Signup',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  style: ButtonStyle(
-                    alignment: Alignment.center,
-                    backgroundColor: MaterialStateProperty.all(
-                      Colors.blue,
-                    ),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    )),
-                    fixedSize: MaterialStateProperty.all(
-                      Size(
-                        size.width * 0.35,
-                        size.height * 0.06,
-                      ),
-                    ),
-                  ),
-                ),
+                GradientButtonWithBorder(
+                    title: "Sign up",
+                    height: size.height * 0.06,
+                    width: size.width * 0.35,
+                    onTap: () {}),
                 SizedBox(
                   height: size.height * 0.045,
                 ),
                 RichText(
                   text: TextSpan(
                     text: 'Existing user ? ',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
-                      color: Colors.black,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
                     ),
                     children: [
                       TextSpan(

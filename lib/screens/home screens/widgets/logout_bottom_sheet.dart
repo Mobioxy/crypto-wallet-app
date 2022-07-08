@@ -31,9 +31,11 @@ class LogoutBottomSheet extends StatelessWidget {
         builder: (_, controller) {
           return Container(
             padding: const EdgeInsets.all(24),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.vertical(
+            decoration: BoxDecoration(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.grey[900]
+                  : Colors.white,
+              borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(20),
               ),
             ),
@@ -51,7 +53,7 @@ class LogoutBottomSheet extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -60,13 +62,14 @@ class LogoutBottomSheet extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context).pop();
                       },
-                      width: 130,
+                      width: 140,
                       borderRadius: 50,
+                      isFromBottomSheet: true,
                     ),
                     GradientButton(
                       title: 'Yes, Logout',
                       onTap: () {},
-                      width: 130,
+                      width: 140,
                     ),
                   ],
                 ),

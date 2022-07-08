@@ -13,7 +13,7 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0,
         automaticallyImplyLeading: false,
         leading: GestureDetector(
           onTap: () {
@@ -79,6 +79,7 @@ class SettingPage extends StatelessWidget {
             SettingsPageContainer(
               text: 'Logout',
               icon: Icons.logout,
+              isLoagout: true,
               onTap: () {
                 showModalBottomSheet(
                   context: context,

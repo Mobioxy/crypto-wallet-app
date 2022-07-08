@@ -8,7 +8,9 @@ ThemeData themeData(BuildContext context) {
     backgroundColor: Colors.white,
     primaryColor: primaryColor,
     scaffoldBackgroundColor: Colors.white,
-    primarySwatch: generateMaterialColor(primaryColor),
+    primarySwatch: generateMaterialColor(primaryColor), bottomSheetTheme:const  BottomSheetThemeData(
+      backgroundColor: Colors.white,
+    ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
       systemOverlayStyle: SystemUiOverlayStyle.dark,

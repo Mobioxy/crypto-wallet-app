@@ -18,7 +18,7 @@ class SwapTokenPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0,
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: const Text(
