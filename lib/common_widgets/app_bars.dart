@@ -3,7 +3,8 @@ import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 class BackAppBar extends PreferredSize {
-  BackAppBar(BuildContext context, {Key? key, required String title})
+  BackAppBar(BuildContext context,
+      {Key? key, required String title, List<Widget>? actions})
       : super(
           key: key,
           preferredSize: const Size.fromHeight(100),
@@ -23,6 +24,7 @@ class BackAppBar extends PreferredSize {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  actions: actions,
                   elevation: 0,
                   leadingWidth: 70,
                   centerTitle: true,

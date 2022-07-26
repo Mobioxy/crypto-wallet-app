@@ -1,10 +1,12 @@
-import 'package:crypto_wallet_app/main.dart';
+import 'package:crypto_wallet_app/screens/Import_from_seed_screen.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/login_screen.dart';
 import 'package:crypto_wallet_app/screens/authentication%20screens/signup_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/home_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/swap_confirmation_screen.dart';
 import 'package:crypto_wallet_app/screens/home%20screens/widgets/scanQRcodeWidget.dart';
 import 'package:crypto_wallet_app/screens/import_token/import_token_screen.dart';
+import 'package:crypto_wallet_app/screens/onboding_screen1.dart';
+import 'package:crypto_wallet_app/screens/onbording_screen2.dart';
 import 'package:crypto_wallet_app/screens/settings/preferences/preferences.dart';
 import 'package:crypto_wallet_app/screens/settings/preferences/screens/about_metacoin_screen.dart';
 import 'package:crypto_wallet_app/screens/settings/preferences/screens/advanced_screen.dart';
@@ -26,6 +28,7 @@ import 'package:crypto_wallet_app/screens/transaction_send/transaction_send_to/t
 
 import '../screens/settings/preferences/screens/contact_us_screen.dart';
 import '../screens/settings/preferences/screens/faq_screen.dart';
+import '../screens/splash_screen.dart';
 
 class AppRouter {
   static Route<dynamic> _errorRoute() {
@@ -49,6 +52,21 @@ class AppRouter {
         );
 
       // Authentication
+      case OnbordPage.id:
+        return MaterialPageRoute(
+          builder: (_) => const OnbordPage(),
+        );
+
+      case OnbordPage1.id:
+        return MaterialPageRoute(
+          builder: (_) => const OnbordPage1(),
+        );
+
+      case ImportFromSeed.id:
+        return MaterialPageRoute(
+          builder: (_) => const ImportFromSeed(),
+        );
+
       case LoginScreen.id:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),

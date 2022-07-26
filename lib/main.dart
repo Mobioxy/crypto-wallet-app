@@ -1,17 +1,13 @@
-import 'dart:async';
 import 'package:crypto_wallet_app/core/preferences.dart';
 import 'package:crypto_wallet_app/core/provider/theme_provider.dart';
 import 'package:crypto_wallet_app/core/routes.dart';
 import 'package:crypto_wallet_app/core/theme.dart';
 import 'package:crypto_wallet_app/firebase_options.dart';
-import 'package:crypto_wallet_app/screens/authentication%20screens/login_screen.dart';
+import 'package:crypto_wallet_app/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:loading_indicator/loading_indicator.dart';
-
 import 'locator/locator.dart';
 
 void main() async {
@@ -55,104 +51,104 @@ class MyApp extends ConsumerWidget {
   }
 }
 
-class SplashPage extends StatefulWidget {
-  static const id = '/splashPage';
-  const SplashPage({Key? key}) : super(key: key);
+// class SplashPage extends StatefulWidget {
+//   static const id = '/splashPage';
+//   const SplashPage({Key? key}) : super(key: key);
 
-  @override
-  State<SplashPage> createState() => _SplashPageState();
-}
+//   @override
+//   State<SplashPage> createState() => _SplashPageState();
+// }
 
-class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    navigationToScreens();
-    super.initState();
-  }
+// class _SplashPageState extends State<SplashPage> {
+//   @override
+//   void initState() {
+//     navigationToScreens();
+//     super.initState();
+//   }
 
-  navigationToScreens() {
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(
-        context,
-        LoginScreen.id,
-      );
-    });
-  }
+//   navigationToScreens() {
+//     Future.delayed(const Duration(seconds: 30), () {
+//       Navigator.pushReplacementNamed(
+//         context,
+//         LoginScreen.id,
+//       );
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: SafeArea(
-        child: SizedBox(
-          height: size.height,
-          width: size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 25,
-                ),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Blockchain',
-                    style: GoogleFonts.lato(
-                      textStyle: const TextStyle(
-                        fontSize: 22,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.04,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-                child: Image.asset(
-                  'assets/images/block_chain.png',
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.04,
-              ),
-              Text(
-                'Crypto Wallet',
-                style: GoogleFonts.lato(
-                  textStyle: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.077,
-              ),
-              SizedBox(
-                height: size.height * 0.15,
-                child: Center(
-                  child: SizedBox(
-                    height: size.height * 0.07,
-                    child: const LoadingIndicator(
-                      colors: [
-                        Colors.purple,
-                        Colors.blue,
-                        Colors.orange,
-                      ],
-                      indicatorType: Indicator.ballSpinFadeLoader,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     var size = MediaQuery.of(context).size;
+//     return Scaffold(
+//       body: SafeArea(
+//         child: SizedBox(
+//           height: size.height,
+//           width: size.width,
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Padding(
+//                 padding: const EdgeInsets.only(
+//                   left: 25,
+//                 ),
+//                 child: Align(
+//                   alignment: Alignment.centerLeft,
+//                   child: Text(
+//                     'Blockchain',
+//                     style: GoogleFonts.lato(
+//                       textStyle: const TextStyle(
+//                         fontSize: 22,
+//                         color: Colors.blue,
+//                         fontWeight: FontWeight.w600,
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               SizedBox(
+//                 height: size.height * 0.04,
+//               ),
+//               Padding(
+//                 padding:
+//                     const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+//                 child: Image.asset(
+//                   'assets/images/Splash_Screen.png',
+//                 ),
+//               ),
+//               SizedBox(
+//                 height: size.height * 0.04,
+//               ),
+//               Text(
+//                 'Crypto Wallet',
+//                 style: GoogleFonts.lato(
+//                   textStyle: const TextStyle(
+//                     fontSize: 22,
+//                     fontWeight: FontWeight.w600,
+//                   ),
+//                 ),
+//               ),
+//               SizedBox(
+//                 height: size.height * 0.077,
+//               ),
+//               SizedBox(
+//                 height: size.height * 0.15,
+//                 child: Center(
+//                   child: SizedBox(
+//                     height: size.height * 0.07,
+//                     child: const LoadingIndicator(
+//                       colors: [
+//                         Colors.purple,
+//                         Colors.blue,
+//                         Colors.orange,
+//                       ],
+//                       indicatorType: Indicator.ballSpinFadeLoader,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

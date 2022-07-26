@@ -13,8 +13,9 @@ Widget textFieldContainer(
   Color fillColor = Colors.transparent,
   double horizontalPadding = 20.0,
   double verticalPadding = 10.0,
-  Icon? suffixIcon,
-  Icon? prefixIcon,
+  Widget? suffixIcon,
+  Widget? prefixIcon,
+  String? Function(String?)? validator,
 }) {
   return Column(
     mainAxisSize: MainAxisSize.min,
@@ -52,6 +53,7 @@ Widget textFieldContainer(
         child: TextFormField(
           obscureText: obscureText,
           controller: controller,
+          validator: validator,
           decoration: InputDecoration(
             filled: true,
             fillColor: fillColor,

@@ -21,8 +21,6 @@ class LogoutBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context).size;
-
     return makeDismissible(
       context: context,
       child: DraggableScrollableSheet(

@@ -12,6 +12,6 @@ const Color lightBackgroundColor = Color(0xffe6e2fc);
 
 const Color darkBackgroundColor = Color.fromARGB(255, 32, 31, 31);
 
-final Color lightIconBackgroundColor = Color(0xffebe7fd);
+const Color lightIconBackgroundColor = Color(0xffebe7fd);
 
 const Color errorText = Colors.red;

@@ -114,7 +114,7 @@ class SettingPage extends StatelessWidget {
                   color: lightIconBackgroundColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(Icons.settings).toGradient(),
+                child: const Icon(Icons.settings).toGradient(),
               ),
               const SizedBox(width: 20),
               const Text(
@@ -126,7 +126,7 @@ class SettingPage extends StatelessWidget {
             ],
           ),
         ),
-        Divider(thickness: 1),
+        const Divider(thickness: 1),
       ],
     );
   }

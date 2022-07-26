@@ -1,6 +1,5 @@
 import 'package:crypto_wallet_app/common_widgets/gradient_button.dart';
 import 'package:crypto_wallet_app/common_widgets/text_field_container.dart';
-import 'package:crypto_wallet_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 class AdvancedNetworkFees extends StatelessWidget {
